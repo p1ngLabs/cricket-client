@@ -1,5 +1,7 @@
+import Layout from '../../components/LayoutAdmin/Layout';
+
 const Book = () => {
-  return <div>book...</div>;
+  return <Layout>books...</Layout>;
 };
 
 export default Book;

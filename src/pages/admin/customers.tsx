@@ -1,5 +1,7 @@
+import Layout from '../../components/LayoutAdmin/Layout';
+
 const Customer = () => {
-  return <div>customers...</div>;
+  return <Layout>customers...</Layout>;
 };
 
 export default Customer;

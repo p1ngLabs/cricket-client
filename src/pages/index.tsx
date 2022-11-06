@@ -13,7 +13,7 @@ const Home = () => {
 
       <main>
         <Link href="/admin">
-          <Button colorScheme="teal">ADMIN PANEL</Button>
+          <Button colorScheme="blue">ADMIN PANEL</Button>
         </Link>
       </main>
 

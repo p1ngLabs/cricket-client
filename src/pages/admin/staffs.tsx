@@ -1,5 +1,7 @@
+import Layout from '../../components/LayoutAdmin/Layout';
+
 const Staff = () => {
-  return <div>staffs...</div>;
+  return <Layout>staffs...</Layout>;
 };
 
 export default Staff;
