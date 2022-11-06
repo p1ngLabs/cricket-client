@@ -1,4 +1,4 @@
-import Layout from '../../components/LayoutAdmin/Layout';
+import Layout from '../../layout/LayoutAdmin';
 
 const Customer = () => {
   return <Layout>customers...</Layout>;

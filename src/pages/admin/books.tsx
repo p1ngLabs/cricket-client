@@ -1,4 +1,4 @@
-import Layout from '../../components/LayoutAdmin/Layout';
+import Layout from '../../layout/LayoutAdmin';
 
 const Book = () => {
   return <Layout>books...</Layout>;

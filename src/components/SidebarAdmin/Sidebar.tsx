@@ -1,9 +1,9 @@
 import NextLink from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import cricketLogo from '../../../public/logo-cricket.png';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
-import sidebarNavContents from '../../utils/datas/sidebarAdmin';
+import cricketLogo from '../../../public/logo-cricket.png';
+import sidebarNavContents from '../../utils/datas/_sidebarAdmin';
 
 const Sidebar = () => {
   const router = useRouter();

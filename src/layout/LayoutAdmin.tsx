@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import Sidebar from '../SidebarAdmin/Sidebar';
-import Header from '../HeaderAdmin/Header';
-import { Flex } from '@chakra-ui/react';
+import { Header, Sidebar } from '../components/index';
 
 type Props = {
   children?: React.ReactNode;
@@ -11,18 +9,20 @@ const Layout = (props: Props) => {
   const { children } = props;
 
   return (
-    <Flex h="100vh">
+    <div className="flex h-screen">
       <Head>
         <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
       </Head>
 
       <Sidebar />
 
-      <main className="w-full">
+      <div className="flex flex-col w-full">
         <Header />
-        <section>{children}</section>
-      </main>
-    </Flex>
+        <main className="bg-gray-100 h-full overflow-y-auto">
+          <div className="container px-6 mx-auto">{children}</div>
+        </main>
+      </div>
+    </div>
   );
 };
 
