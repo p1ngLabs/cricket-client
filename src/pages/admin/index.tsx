@@ -1,3 +1,7 @@
-export default function AdminDashboard() {
-  return <h1 className="text-3xl font-bold">Admin Dashboard</h1>;
-}
+import Layout from '../../layout/LayoutAdmin';
+
+const Dashboard = () => {
+  return <Layout>this is the dashboard...</Layout>;
+};
+
+export default Dashboard;
