@@ -1,4 +1,4 @@
-import Layout from '../../layout/LayoutAdmin';
+import Layout from '../../layouts/LayoutAdmin';
 import { useState } from 'react';
 import {
   createColumnHelper,
@@ -14,6 +14,7 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
+import RowActionButtons from '../../components/RowActions/RowActions';
 
 type Customers = {
   firstname: string;
@@ -78,24 +79,20 @@ const customersData: Customers[] = [
 const columnHelper = createColumnHelper<Customers>();
 const columns = [
   columnHelper.accessor((row) => `${row.firstname} ${row.lastname}`, {
-    id: 'fullname',
-    header: 'FULLNAME',
-    footer: (info) => info.column.id,
+    header: 'fullname',
   }),
   columnHelper.accessor('username', {
-    id: 'username',
-    header: () => <span>Username</span>,
-    footer: (info) => info.column.id,
+    header: 'username',
   }),
   columnHelper.accessor('email', {
-    id: 'email',
     header: 'Email',
-    footer: (info) => info.column.id,
   }),
   columnHelper.accessor('phone', {
-    id: 'phone',
     header: 'Phone',
-    footer: (info) => info.column.id,
+  }),
+  columnHelper.display({
+    header: 'actions',
+    cell: () => <RowActionButtons />,
   }),
 ];
 
@@ -172,7 +169,7 @@ const Customer = () => {
             type="button"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50"
           >
             Previous
           </button>
@@ -180,7 +177,7 @@ const Customer = () => {
             type="button"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50"
           >
             Next
           </button>
@@ -201,7 +198,7 @@ const Customer = () => {
                 table.setPageSize(Number(e.target.value));
               }}
             >
-              {[5, 20, 30].map((pageSize) => (
+              {[10, 20, 30].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
                   Show {pageSize}
                 </option>
@@ -216,7 +213,7 @@ const Customer = () => {
               type="button"
               onClick={() => table.setPageIndex(0)}
               disabled={!table.getCanPreviousPage()}
-              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium rounded-l-md text-gray-700 bg-white hover:bg-gray-100"
+              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium rounded-l-md text-gray-700 bg-white hover:bg-blue-50"
             >
               <span className="sr-only">First</span>
               <HiChevronDoubleLeft className="h-5 w-5" aria-hidden="true" />
@@ -225,7 +222,7 @@ const Customer = () => {
               type="button"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
-              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-100"
+              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-blue-50"
             >
               <span className="sr-only">Previous</span>
               <HiChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -234,7 +231,7 @@ const Customer = () => {
               type="button"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
-              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-gray-100"
+              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium text-gray-700 bg-white hover:bg-blue-50"
             >
               <span className="sr-only">Next</span>
               <HiChevronRight className="h-5 w-5" aria-hidden="true" />
@@ -243,7 +240,7 @@ const Customer = () => {
               type="button"
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
               disabled={!table.getCanNextPage()}
-              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-white hover:bg-gray-100"
+              className="relative inline-flex items-center p-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-white hover:bg-blue-50"
             >
               <span className="sr-only">Last</span>
               <HiChevronDoubleRight className="h-5 w-5" aria-hidden="true" />
