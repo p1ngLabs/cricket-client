@@ -15,66 +15,7 @@ import {
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
 import RowActionButtons from '../../components/RowActions/RowActions';
-
-type Customers = {
-  firstname: string;
-  lastname: string;
-  username: string;
-  email: string;
-  active: boolean;
-  phone: string;
-};
-
-const customersData: Customers[] = [
-  {
-    firstname: 'phuc',
-    lastname: 'nguyen',
-    username: 'phuc1nguyen',
-    email: 'phuc.ng13988@gmail.com',
-    active: true,
-    phone: '0123894',
-  },
-  {
-    firstname: 'khanh',
-    lastname: 'nguyen',
-    username: 'khanhnguyen',
-    email: 'khanhnguyen@gmail.com',
-    active: true,
-    phone: '192837',
-  },
-  {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
-    active: false,
-    phone: '10967085',
-  },
-  {
-    firstname: 'phuc',
-    lastname: 'nguyen',
-    username: 'phuc1nguyen',
-    email: 'phuc.ng13988@gmail.com',
-    active: false,
-    phone: '0123894',
-  },
-  {
-    firstname: 'khanh',
-    lastname: 'nguyen',
-    username: 'khanhnguyen',
-    email: 'khanhnguyen@gmail.com',
-    active: false,
-    phone: '192837',
-  },
-  {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
-    active: true,
-    phone: '10967085',
-  },
-];
+import customers, { Customers } from '../../utils/datas/customers';
 
 const columnHelper = createColumnHelper<Customers>();
 const columns = [
@@ -97,7 +38,7 @@ const columns = [
 ];
 
 const Customer = () => {
-  const [data, setData] = useState<Customers[]>(() => [...customersData]);
+  const [data, setData] = useState<Customers[]>(() => [...customers]);
   const [globalFilter, setGlobalFilter] = useState<string>('');
 
   const table = useReactTable({
