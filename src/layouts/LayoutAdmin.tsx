@@ -19,7 +19,7 @@ const Layout = (props: Props) => {
       <div className="flex flex-col w-full">
         <Header />
         <main className="bg-gray-100 h-full overflow-y-auto">
-          <div className="container mx-auto px-6 py-10">{children}</div>
+          <div className="container mx-auto p-6">{children}</div>
         </main>
       </div>
     </div>

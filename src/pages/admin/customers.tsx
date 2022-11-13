@@ -1,5 +1,5 @@
 import Layout from '../../layouts/LayoutAdmin';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import {
   createColumnHelper,
   flexRender,
@@ -7,6 +7,7 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import { useDisclosure } from '@chakra-ui/react';
 import {
   HiChevronDoubleLeft,
   HiChevronLeft,
@@ -14,8 +15,9 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
+import MainDrawer from '../../components/Drawer/MainDrawer';
 import RowActionButtons from '../../components/RowActions/RowActions';
-import customers, { Customers } from '../../utils/datas/customers';
+import customers, { Customers } from '../../utils/datas/_customers';
 
 const columnHelper = createColumnHelper<Customers>();
 const columns = [
@@ -40,6 +42,14 @@ const columns = [
 const Customer = () => {
   const [data, setData] = useState<Customers[]>(() => [...customers]);
   const [globalFilter, setGlobalFilter] = useState<string>('');
+  const [size, setSize] = useState<string>('');
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef<HTMLButtonElement>(null);
+
+  const handleOpen = (size: string) => {
+    setSize(size);
+    onOpen();
+  };
 
   const table = useReactTable({
     data,
@@ -52,6 +62,8 @@ const Customer = () => {
 
   return (
     <Layout>
+      <MainDrawer isOpen={isOpen} onClose={onClose} btnRef={btnRef} size={size} />
+
       <h1 className="font-bold text-xl text-gray-700">Danh sách khách hàng</h1>
 
       <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md">
@@ -60,14 +72,16 @@ const Customer = () => {
           name="search"
           id="search"
           className="block w-full border border-gray-200 bg-gray-100 px-4 py-2 rounded-md focus:bg-white focus:border-gray-200 focus:outline-none"
-          placeholder="Search by username, email"
+          placeholder="Search by username or email"
         />
         <button
           type="button"
           className="flex items-center bg-blue-500 px-6 py-2 font-bold text-gray-100 rounded-md"
+          ref={btnRef}
+          onClick={() => handleOpen('lg')}
         >
-          <FaPlus />
-          ADD
+          <FaPlus className="mr-2" />
+          THÊM
         </button>
       </div>
 
@@ -139,7 +153,7 @@ const Customer = () => {
                 table.setPageSize(Number(e.target.value));
               }}
             >
-              {[10, 20, 30].map((pageSize) => (
+              {[8, 16, 24].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
                   Show {pageSize}
                 </option>
