@@ -9,6 +9,7 @@ const Header = () => {
       <div className="container flex items-center justify-between px-6 h-full mx-auto text-blue-500">
         <GiHamburgerMenu className="cursor-pointer text-lg lg:hidden" />
         <div className="flex items-center ml-auto space-x-6">
+          {/* TODO: make toggle dark mode */}
           {/* <button type="button" className="text-xl">
             <MdNightlight />
           </button>

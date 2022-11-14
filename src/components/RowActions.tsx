@@ -1,12 +1,8 @@
+import { ReactNode } from 'react';
 import { Tooltip } from '@chakra-ui/react';
 import { FiEdit, FiTrash2, FiEye } from 'react-icons/fi';
 
-type propsType = {
-  children?: JSX.Element;
-  title: string;
-};
-
-const RowButton = (props: propsType) => {
+const RowButton = (props: { children?: ReactNode; title: string }) => {
   const { children, title } = props;
 
   return (

@@ -1,3 +1,4 @@
+import { ReactNode, useContext } from 'react';
 import {
   Drawer,
   DrawerBody,
@@ -9,23 +10,18 @@ import {
   Input,
   Button,
 } from '@chakra-ui/react';
+import DrawerContext from '../../contexts/DrawerContext';
 
-type propsType = {
-  children?: React.ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
-  btnRef: any;
-  size: string;
-};
-
-const MainDrawer = (props: propsType) => {
-  const { children, isOpen, onClose, btnRef, size } = props;
+const CoreDrawer = (props: { children?: ReactNode }) => {
+  const { children } = props;
+  const { isOpen, onClose, btnRef, size } = useContext(DrawerContext);
 
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef} size={size}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
+        {/* TODO: make dynamic drawer header */}
         <DrawerHeader>Thêm khách hàng</DrawerHeader>
 
         <DrawerBody>
@@ -44,4 +40,4 @@ const MainDrawer = (props: propsType) => {
   );
 };
 
-export default MainDrawer;
+export default CoreDrawer;

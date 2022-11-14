@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
 import cricketLogo from '../../../public/logo-cricket.png';
-import sidebarNavContents from '../../utils/datas/_sidebarAdmin';
+import sidebarNavContents from '../utils/datas/_sidebarAdmin';
 
-const Sidebar = () => {
+const SidebarAdmin = () => {
   const router = useRouter();
 
   return (
@@ -34,4 +34,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarAdmin;

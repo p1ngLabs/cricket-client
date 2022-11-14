@@ -1,5 +1,6 @@
+import { useState, useContext } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
-import { useState, useRef } from 'react';
+import { CustomerDrawer, RowActions } from '../../components/index';
 import {
   createColumnHelper,
   flexRender,
@@ -7,7 +8,7 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { useDisclosure } from '@chakra-ui/react';
+import DrawerContext from '../../contexts/DrawerContext';
 import {
   HiChevronDoubleLeft,
   HiChevronLeft,
@@ -15,11 +16,9 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
-import MainDrawer from '../../components/Drawer/MainDrawer';
-import RowActionButtons from '../../components/RowActions/RowActions';
-import customers, { Customers } from '../../utils/datas/_customers';
+import customers, { CustomersType } from '../../utils/datas/_customers';
 
-const columnHelper = createColumnHelper<Customers>();
+const columnHelper = createColumnHelper<CustomersType>();
 const columns = [
   columnHelper.accessor((row) => `${row.firstname} ${row.lastname}`, {
     header: 'fullname',
@@ -35,34 +34,27 @@ const columns = [
   }),
   columnHelper.display({
     header: 'actions',
-    cell: () => <RowActionButtons />,
+    cell: () => <RowActions />,
   }),
 ];
 
 const Customer = () => {
-  const [data, setData] = useState<Customers[]>(() => [...customers]);
-  const [globalFilter, setGlobalFilter] = useState<string>('');
-  const [size, setSize] = useState<string>('');
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef<HTMLButtonElement>(null);
-
-  const handleOpen = (size: string) => {
-    setSize(size);
-    onOpen();
-  };
+  const [data, setData] = useState<CustomersType[]>(() => [...customers]);
+  // const [globalFilter, setGlobalFilter] = useState<string>('');
+  const { handleOpen, btnRef } = useContext(DrawerContext);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    onGlobalFilterChange: setGlobalFilter,
+    // onGlobalFilterChange: setGlobalFilter,
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
   });
 
   return (
     <Layout>
-      <MainDrawer isOpen={isOpen} onClose={onClose} btnRef={btnRef} size={size} />
+      <CustomerDrawer />
 
       <h1 className="font-bold text-xl text-gray-700">Danh sách khách hàng</h1>
 
