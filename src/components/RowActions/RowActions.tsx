@@ -10,7 +10,7 @@ const RowButton = (props: propsType) => {
   const { children, title } = props;
 
   return (
-    <Tooltip hasArrow label={title}>
+    <Tooltip hasArrow label={title} placement="top">
       <button className="p-3 border border-gray-200 rounded-md hover:bg-blue-50">{children}</button>
     </Tooltip>
   );
