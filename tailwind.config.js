@@ -3,22 +3,15 @@ module.exports = {
   content: [
     './src/pages/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
-    './src/layout/*.{ts,tsx}',
+    './src/layouts/*.{ts,tsx}',
   ],
   theme: {
     screens: {
       // https://tailwindcss.com/docs/screens
-      sm: '640px',
-      // => @media (min-width: 640px) { ... }
-
+      sm: '480px', // 640px
       md: '768px',
-      // => @media (min-width: 768px) { ... }
-
       lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
     },
     extend: {},
   },
