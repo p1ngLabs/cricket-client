@@ -1,6 +1,8 @@
-import { Button } from '@chakra-ui/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Button } from '@chakra-ui/react';
+
+const currentYear = new Date().getFullYear();
 
 const Home = () => {
   return (
@@ -17,7 +19,7 @@ const Home = () => {
         </Link>
       </main>
 
-      <footer>the cricket project &copy; 2022</footer>
+      <footer>the cricket project &copy; {currentYear}</footer>
     </div>
   );
 };
