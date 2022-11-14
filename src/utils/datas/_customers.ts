@@ -1,4 +1,4 @@
-export type Customers = {
+export type CustomersType = {
   firstname: string;
   lastname: string;
   username: string;
@@ -7,7 +7,7 @@ export type Customers = {
   phone: string;
 };
 
-const customers: Customers[] = [
+const customers: CustomersType[] = [
   {
     firstname: 'phuc',
     lastname: 'nguyen',

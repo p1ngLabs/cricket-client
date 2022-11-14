@@ -1,11 +1,8 @@
 import Head from 'next/head';
+import { ReactNode } from 'react';
 import { Header, Sidebar } from '../components/index';
 
-type Props = {
-  children?: React.ReactNode;
-};
-
-const Layout = (props: Props) => {
+const Layout = (props: { children?: ReactNode }) => {
   const { children } = props;
 
   return (
