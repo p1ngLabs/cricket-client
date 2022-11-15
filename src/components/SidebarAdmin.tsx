@@ -2,7 +2,7 @@ import NextLink from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
-import cricketLogo from '../../../public/logo-cricket.png';
+import cricketLogo from '../../public/logo-cricket.png';
 import sidebarNavContents from '../utils/datas/_sidebarAdmin';
 
 const SidebarAdmin = () => {
