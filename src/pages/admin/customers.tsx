@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
-import { CustomerDrawer, RowActions } from '../../components/index';
+import { CustomerDrawer, DataImageAdmin, RowActions } from '../../components/index';
 import {
   createColumnHelper,
   flexRender,
@@ -20,17 +20,21 @@ import customers, { CustomersType } from '../../utils/datas/_customers';
 
 const columnHelper = createColumnHelper<CustomersType>();
 const columns = [
-  columnHelper.accessor((row) => `${row.firstname} ${row.lastname}`, {
-    header: 'fullname',
+  columnHelper.accessor('_id', {
+    header: '#',
   }),
   columnHelper.accessor('username', {
     header: 'username',
   }),
   columnHelper.accessor('email', {
-    header: 'Email',
+    header: 'email',
+  }),
+  columnHelper.accessor('avatar', {
+    header: 'avatar',
+    cell: (info) => <DataImageAdmin src={info.getValue()} />,
   }),
   columnHelper.accessor('phone', {
-    header: 'Phone',
+    header: 'phone',
   }),
   columnHelper.display({
     header: 'actions',
