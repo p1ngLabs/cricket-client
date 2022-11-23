@@ -1,100 +1,76 @@
-export type CustomersType = {
+export type CustomerType = {
+  _id: string;
   firstname: string;
   lastname: string;
+  sex: string;
   username: string;
   email: string;
+  avatar: string;
   active: boolean;
   phone: string;
+  createdAt: string;
 };
 
-const customers: CustomersType[] = [
+const customers: CustomerType[] = [
   {
+    _id: 'asdlkfj',
     firstname: 'phuc',
     lastname: 'nguyen',
+    sex: 'male',
     username: 'phuc1nguyen',
     email: 'phuc.ng13988@gmail.com',
+    avatar: '',
     active: true,
-    phone: '0123894',
+    phone: '0129348023',
+    createdAt: '',
   },
   {
-    firstname: 'khanh',
-    lastname: 'nguyen',
-    username: 'khanhnguyen',
-    email: 'khanhnguyen@gmail.com',
-    active: true,
-    phone: '192837',
-  },
-  {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
-    active: false,
-    phone: '10967085',
-  },
-  {
+    _id: 'asdlkfj',
     firstname: 'phuc',
     lastname: 'nguyen',
+    sex: 'male',
     username: 'phuc1nguyen',
     email: 'phuc.ng13988@gmail.com',
-    active: false,
-    phone: '0123894',
-  },
-  {
-    firstname: 'khanh',
-    lastname: 'nguyen',
-    username: 'khanhnguyen',
-    email: 'khanhnguyen@gmail.com',
-    active: false,
-    phone: '192837',
-  },
-  {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
+    avatar: '',
     active: true,
-    phone: '10967085',
+    phone: '0129348023',
+    createdAt: '',
   },
   {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
-    active: false,
-    phone: '10967085',
-  },
-  {
+    _id: 'asdlkfj',
     firstname: 'phuc',
     lastname: 'nguyen',
+    sex: 'male',
     username: 'phuc1nguyen',
     email: 'phuc.ng13988@gmail.com',
-    active: false,
-    phone: '0123894',
+    avatar: '',
+    active: true,
+    phone: '0129348023',
+    createdAt: '',
   },
   {
-    firstname: 'khanh',
+    _id: 'asdlkfj',
+    firstname: 'phuc',
     lastname: 'nguyen',
-    username: 'khanhnguyen',
-    email: 'khanhnguyen@gmail.com',
-    active: false,
-    phone: '192837',
+    sex: 'male',
+    username: 'phuc1nguyen',
+    email: 'phuc.ng13988@gmail.com',
+    avatar: '',
+    active: true,
+    phone: '0129348023',
+    createdAt: '',
   },
   {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
+    _id: 'asdlkfj',
+    firstname: 'phuc',
+    lastname: 'nguyen',
+    sex: 'male',
+    username: 'phuc1nguyen',
+    email: 'phuc.ng13988@gmail.com',
+    avatar: '',
     active: true,
-    phone: '10967085',
-  },
-  {
-    firstname: 'frank',
-    lastname: 'herbert',
-    username: 'fherbert',
-    email: 'frankherbert@gmail.com',
-    active: true,
-    phone: '10967085',
+    phone: '0129348023',
+    createdAt: '',
   },
 ];
 

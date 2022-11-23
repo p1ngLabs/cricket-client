@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
-import { CustomerDrawer, RowActions } from '../../components/index';
+import { CustomerDrawer, RowImageAdmin, RowActions } from '../../components/index';
 import {
   createColumnHelper,
   flexRender,
@@ -16,21 +16,25 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
-import customers, { CustomersType } from '../../utils/datas/_customers';
+import customers, { CustomerType } from '../../utils/datas/_customers';
 
-const columnHelper = createColumnHelper<CustomersType>();
+const columnHelper = createColumnHelper<CustomerType>();
 const columns = [
-  columnHelper.accessor((row) => `${row.firstname} ${row.lastname}`, {
-    header: 'fullname',
+  columnHelper.accessor('_id', {
+    header: '#',
   }),
   columnHelper.accessor('username', {
     header: 'username',
   }),
   columnHelper.accessor('email', {
-    header: 'Email',
+    header: 'email',
+  }),
+  columnHelper.accessor('avatar', {
+    header: 'avatar',
+    cell: (info) => <RowImageAdmin src={info.getValue()} />,
   }),
   columnHelper.accessor('phone', {
-    header: 'Phone',
+    header: 'phone',
   }),
   columnHelper.display({
     header: 'actions',
@@ -39,15 +43,13 @@ const columns = [
 ];
 
 const Customer = () => {
-  const [data, setData] = useState<CustomersType[]>(() => [...customers]);
-  // const [globalFilter, setGlobalFilter] = useState<string>('');
+  const [data, setData] = useState<CustomerType[]>(() => [...customers]);
   const { handleOpen, btnRef } = useContext(DrawerContext);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    // onGlobalFilterChange: setGlobalFilter,
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
   });
@@ -96,11 +98,11 @@ const Customer = () => {
               </tr>
             ))}
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-gray-200 text-sm">
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="px-6 py-4 whitespace-nowrap">
+                  <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
@@ -145,7 +147,7 @@ const Customer = () => {
                 table.setPageSize(Number(e.target.value));
               }}
             >
-              {[8, 16, 24].map((pageSize) => (
+              {[10, 20, 30].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
                   Show {pageSize}
                 </option>

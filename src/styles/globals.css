@@ -22,6 +22,10 @@ button {
   cursor: pointer;
 }
 
+.myBoxShadow {
+  box-shadow: 0 0 15px 0 rgb(34 41 47 / 5%);
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
