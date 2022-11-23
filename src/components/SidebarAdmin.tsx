@@ -9,7 +9,7 @@ const SidebarAdmin = () => {
   const router = useRouter();
 
   return (
-    <aside className="relative w-64 pt-4 shadow-md shadow-gray-400 flex-shrink-0">
+    <aside className="relative w-64 pt-4 shadow-md shadow-gray-400 flex-shrink-0 overflow-y-auto">
       <Image src={cricketLogo} className="mx-auto" alt="Logo" />
 
       <List className="mt-8">

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
-import { CustomerDrawer, DataImageAdmin, RowActions } from '../../components/index';
+import { CustomerDrawer, RowImageAdmin, RowActions } from '../../components/index';
 import {
   createColumnHelper,
   flexRender,
@@ -31,7 +31,7 @@ const columns = [
   }),
   columnHelper.accessor('avatar', {
     header: 'avatar',
-    cell: (info) => <DataImageAdmin src={info.getValue()} />,
+    cell: (info) => <RowImageAdmin src={info.getValue()} />,
   }),
   columnHelper.accessor('phone', {
     header: 'phone',
@@ -100,11 +100,11 @@ const Customer = () => {
               </tr>
             ))}
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-gray-200 text-sm">
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="px-6 py-4 whitespace-nowrap">
+                  <td key={cell.id} className="py-2 whitespace-nowrap">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
