@@ -9,13 +9,13 @@ const Home = () => {
     <div>
       <Head>
         <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
-        <meta name="description" content="Thư viện cho bạn và cho tôi..." />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Thư viện cho bạn và cho tôi...' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>
-        <Link href="/admin">
-          <Button colorScheme="blue">ADMIN PANEL</Button>
+        <Link href='/admin/index'>
+          <Button colorScheme='blue'>ADMIN PANEL</Button>
         </Link>
       </main>
 
