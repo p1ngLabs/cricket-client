@@ -1,4 +1,9 @@
 {
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "browser": true,
     "commonjs": true,
@@ -22,18 +27,13 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
-      2,
+      "error",
       {
         "namedComponents": "arrow-function"
       }
     ],
     "react/prop-types": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto",
-        "quotes": [0, "double"]
-      }
-    ]
+    "eol-last": ["error", "always"],
+    "jsx-quotes": ["warn", "prefer-double"]
   }
 }
