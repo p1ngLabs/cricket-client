@@ -1,10 +1,11 @@
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Button } from '@chakra-ui/react';
 
 const currentYear = new Date().getFullYear();
 
-const Home = () => {
+const Home: NextPage = () => {
   return (
     <div>
       <Head>

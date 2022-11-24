@@ -1,6 +1,7 @@
+import type { NextPage } from 'next';
 import Layout from '../../layouts/LayoutAdmin';
 
-const Order = () => {
+const Order: NextPage = () => {
   return <Layout>orders...</Layout>;
 };
 

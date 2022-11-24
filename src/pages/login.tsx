@@ -1,3 +1,4 @@
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import {
   Button,
@@ -8,7 +9,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const LoginPage = () => {
+const LoginPage: NextPage = () => {
   const { toggleColorMode } = useColorMode();
   const toggleBackgroundColor = useColorModeValue('grey.100', 'grey.700');
 

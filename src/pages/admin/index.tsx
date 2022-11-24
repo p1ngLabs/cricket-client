@@ -1,6 +1,7 @@
+import type { NextPage } from 'next';
 import Layout from '../../layouts/LayoutAdmin';
 
-const Dashboard = () => {
+const Dashboard: NextPage = () => {
   return <Layout>this is the dashboard...</Layout>;
 };
 
