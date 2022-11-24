@@ -1,3 +1,4 @@
+import type { NextPage } from 'next';
 import { useState, useContext } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
 import { CustomerDrawer, RowImageAdmin, RowActions } from '../../components/index';
@@ -42,7 +43,7 @@ const columns = [
   }),
 ];
 
-const Customer = () => {
+const Customer: NextPage = () => {
   const [data, setData] = useState<CustomerType[]>(() => [...customers]);
   const { handleOpen, btnRef } = useContext(DrawerContext);
 
