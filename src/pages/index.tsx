@@ -9,13 +9,13 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <meta name="description" content="Thư viện cho bạn và cho tôi..." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Link href="/admin/index">
+        <Link href="/admin">
           <Button colorScheme="blue">ADMIN PANEL</Button>
         </Link>
       </main>

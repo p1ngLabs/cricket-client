@@ -10,7 +10,7 @@ const SidebarAdmin = () => {
 
   return (
     <aside className="relative w-64 pt-4 flex-shrink-0 overflow-y-auto myBoxShadow">
-      <Image src={cricketLogo} className="mx-auto" alt="Logo" />
+      <Image src={cricketLogo} className="mx-auto" alt="Logo" priority />
 
       <List className="mt-8">
         {sidebarNavContents.map((item) => (

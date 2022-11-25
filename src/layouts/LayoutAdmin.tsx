@@ -8,7 +8,7 @@ const Layout = (props: { children?: ReactNode }) => {
   return (
     <div className="flex h-screen">
       <Head>
-        <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
       </Head>
 
       <Sidebar />
