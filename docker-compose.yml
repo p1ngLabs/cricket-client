@@ -8,9 +8,8 @@ services:
     volumes:
       - ./db-psql:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=${NEXT_PUBLIC_PSQL_USER}
+      - POSTGRES_USER=${NEXT_PUBLIC_PSQL_USERNAME}
       - POSTGRES_PASSWORD=${NEXT_PUBLIC_PSQL_PASSWORD}
       - POSTGRES_DB=${NEXT_PUBLIC_PSQL_DATABASE}
-      - PGDATA:/var/lib/postgresql/data/pgdata
     ports:
       - ${NEXT_PUBLIC_PSQL_PORT}:5432
