@@ -4,12 +4,13 @@ version: '3.1'
 services:
   db:
     image: postgres
+    container_name: db
     restart: always
     volumes:
       - ./db-psql:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=${NEXT_PUBLIC_PSQL_USERNAME}
-      - POSTGRES_PASSWORD=${NEXT_PUBLIC_PSQL_PASSWORD}
-      - POSTGRES_DB=${NEXT_PUBLIC_PSQL_DATABASE}
+      - POSTGRES_USER=${PSQL_USERNAME}
+      - POSTGRES_PASSWORD=${PSQL_PASSWORD}
+      - POSTGRES_DB=${PSQL_DATABASE}
     ports:
-      - ${NEXT_PUBLIC_PSQL_PORT}:5432
+      - ${PSQL_PORT}:5432

@@ -1,5 +1,3 @@
-import { env } from 'process';
-
 export type Config = {
   db: {
     host: string;
@@ -12,12 +10,17 @@ export type Config = {
 
 const config: Config = {
   db: {
-    host: env.NEXT_PUBLIC_PSQL_HOST || '',
-    port: Number(env.NEXT_PUBLIC_PSQL_PORT) || 5342,
-    user: env.NEXT_PUBLIC_PSQL_USERNAME || 'cricket',
-    password: env.NEXT_PUBLIC_PSQL_PASSWORD || '',
-    database: env.NEXT_PUBLIC_PSQL_DATABASE || '',
+    host: process.env.PSQL_HOST || 'localhost',
+    port: Number(process.env.PSQL_PORT) || 5432,
+    user: process.env.PSQL_USERNAME || 'cricket',
+    password: process.env.PSQL_PASSWORD || 'Cricket@123',
+    database: process.env.PSQL_DATABASE || 'cricket-db',
   },
 };
+
+Object.entries(config.db).forEach(([name, value]) => {
+  console.log(value);
+  if (!value) throw new Error('Missing config value for ' + name);
+});
 
 export default config;
