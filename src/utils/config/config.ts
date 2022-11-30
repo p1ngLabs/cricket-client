@@ -1,25 +1,33 @@
-export type Config = {
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+type Config = {
   db: {
-    host: string;
-    port: number;
-    user: string;
-    password: string;
-    database: string;
+    client: string;
+    connection: {
+      host: string;
+      port: number;
+      user: string;
+      password: string;
+      database: string;
+    };
   };
 };
 
 const config: Config = {
   db: {
-    host: process.env.PSQL_HOST || 'localhost',
-    port: Number(process.env.PSQL_PORT) || 5432,
-    user: process.env.PSQL_USERNAME || 'cricket',
-    password: process.env.PSQL_PASSWORD || 'Cricket@123',
-    database: process.env.PSQL_DATABASE || 'cricket-db',
+    client: 'pg',
+    connection: {
+      host: process.env.PSQL_HOST || 'localhost',
+      user: process.env.PSQL_USER || '',
+      password: process.env.PSQL_PASSWORD || '',
+      database: process.env.PSQL_DATABASE || '',
+      port: Number(process.env.PSQL_PORT) || 5432,
+    },
   },
 };
 
-Object.entries(config.db).forEach(([name, value]) => {
-  console.log(value);
+Object.entries(config.db.connection).forEach(([name, value]) => {
   if (!value) throw new Error('Missing config value for ' + name);
 });
 

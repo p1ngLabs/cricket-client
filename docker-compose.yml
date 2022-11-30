@@ -9,7 +9,7 @@ services:
     volumes:
       - ./db-psql:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=${PSQL_USERNAME}
+      - POSTGRES_USER=${PSQL_USER}
       - POSTGRES_PASSWORD=${PSQL_PASSWORD}
       - POSTGRES_DB=${PSQL_DATABASE}
     ports:

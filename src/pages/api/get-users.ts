@@ -1,5 +1,5 @@
-import knex from 'knex';
 import { NextApiRequest, NextApiResponse } from 'next';
+import knex from '../../utils/config/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const users = await knex('users').where('id', 1).first();

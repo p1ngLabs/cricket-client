@@ -3,8 +3,7 @@ import dbConfig from './src/utils/config/config';
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: 'pg',
-    connection: dbConfig.db,
+    ...dbConfig.db,
     migrations: {
       tableName: 'migrations',
       directory: `${__dirname}/database/migrations`,
@@ -12,7 +11,14 @@ const config: { [key: string]: Knex.Config } = {
     seeds: {
       directory: `${__dirname}/database/seeds`,
     },
-    debug: true,
+  },
+
+  production: {
+    ...dbConfig.db,
+    pool: {
+      min: 0,
+      max: 8,
+    },
   },
 };
 
