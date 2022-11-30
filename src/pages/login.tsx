@@ -16,7 +16,7 @@ const LoginPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_APPNAME}</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <meta name="description" content="Thư viện cho bạn và cho tôi..." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
