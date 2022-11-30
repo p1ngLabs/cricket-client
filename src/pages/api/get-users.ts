@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import knex from '../../utils/config/db';
+import knex from '../../../config/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const users = await knex('users').where('id', 1).first();
+  const users = await knex.select('*').from('users');
 
   res.status(200).json({ message: 'this route returns all users', users });
 };
