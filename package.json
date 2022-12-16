@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "migrate:make:dev": "knex migrate:make --env development",
-    "migrate:list:dev": "knex migrate:list --env development",
-    "migrate:latest:dev": "knex migrate:latest --env development"
+    "migrate:make": "knex migrate:make --env development",
+    "migrate:list": "knex migrate:list --env development",
+    "migrate:latest": "knex migrate:latest --env development",
+    "migrate:status": "knex migrate:status --env development",
+    "seed:make": "knex seed:make --env development",
+    "seed:run": "knex seed:run --env development"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.7",
