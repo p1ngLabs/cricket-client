@@ -11,7 +11,6 @@
     "migrate:make": "knex migrate:make --env development",
     "migrate:list": "knex migrate:list --env development",
     "migrate:latest": "knex migrate:latest --env development",
-    "migrate:status": "knex migrate:status --env development",
     "seed:make": "knex seed:make --env development",
     "seed:run": "knex seed:run --env development"
   },

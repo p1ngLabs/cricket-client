@@ -1,17 +1,8 @@
-import { ReactNode, createContext, RefObject, useRef, useState } from 'react';
+import { ReactNode, createContext, useRef, useState } from 'react';
 import { useDisclosure } from '@chakra-ui/react';
+import DrawerContextInterface, { DrawerSizesType } from '../interfaces/Drawer';
 
-type DrawerSizesType = 'lg' | 'full';
-
-type DrawerContextType = {
-  handleOpen: (arg: DrawerSizesType) => void;
-  isOpen: boolean;
-  onClose: () => void;
-  btnRef: RefObject<HTMLButtonElement>;
-  size: DrawerSizesType;
-};
-
-const DrawerContext = createContext({} as DrawerContextType);
+const DrawerContext = createContext({} as DrawerContextInterface);
 
 export const DrawerProvider = (props: { children?: ReactNode }) => {
   const { children } = props;

@@ -1,22 +1,11 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Button } from '@chakra-ui/react';
 
 const currentYear = new Date().getFullYear();
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch('http://localhost:3000/api/get-users');
-  const result = await response.json();
-
-  return {
-    props: {
-      result,
-    },
-  };
-};
-
-const Home: NextPage = (props) => {
+const Home: NextPage = () => {
   return (
     <div>
       <Head>

@@ -1,18 +1,18 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-type Config = {
+interface Config {
   db: {
     client: string;
     connection: {
       host: string;
-      port: number;
       user: string;
       password: string;
       database: string;
+      port: number;
     };
   };
-};
+}
 
 const config: Config = {
   db: {

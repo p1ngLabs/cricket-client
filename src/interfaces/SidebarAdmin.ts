@@ -4,13 +4,13 @@ import { FaListUl, FaUser, FaUsers } from 'react-icons/fa';
 import { BsCartCheckFill, BsGearFill } from 'react-icons/bs';
 import { IconType } from 'react-icons/lib';
 
-type SidebarType = {
+interface SidebarType {
   title: string;
   icon: IconType;
   link: string;
-};
+}
 
-const sidebarNavContents: SidebarType[] = [
+const sidebarContents: SidebarType[] = [
   {
     title: 'Tổng quan',
     icon: MdDashboard,
@@ -48,4 +48,4 @@ const sidebarNavContents: SidebarType[] = [
   },
 ];
 
-export default sidebarNavContents;
+export default sidebarContents;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
 import cricketLogo from '../../public/logo-cricket.png';
-import sidebarNavContents from '../utils/datas/_sidebarAdmin';
+import sidebarContents from '../interfaces/SidebarAdmin';
 
 const SidebarAdmin = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const SidebarAdmin = () => {
       <Image src={cricketLogo} className="mx-auto" alt="Logo" priority />
 
       <List className="mt-8">
-        {sidebarNavContents.map((item) => (
+        {sidebarContents.map((item) => (
           <ListItem
             key={item.title}
             className={`relative font-bold ${
