@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const RowImageAdmin = (props: { src: string }) => {
-  const { src } = props;
+const RowImageAdmin = (props: { imgSrc: string }) => {
+  const { imgSrc } = props;
 
   return (
-    <Link href={src} passHref legacyBehavior>
+    <Link href={imgSrc} passHref legacyBehavior>
       <a target="_blank">
-        <Image src={src} width={40} height={40} className="rounded-md" alt="avatar" />
+        <Image src={imgSrc} width={40} height={40} className="rounded-md" alt="avatar" />
       </a>
     </Link>
   );

@@ -1,5 +1,5 @@
-import type { NextPage } from 'next';
-import { useState, useContext } from 'react';
+import { NextPage } from 'next/types';
+import { useState, useContext, useEffect } from 'react';
 import Layout from '../../layouts/LayoutAdmin';
 import { CustomerDrawer, RowImageAdmin, RowActions } from '../../components/index';
 import {
@@ -17,11 +17,11 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
-import customers, { CustomerType } from '../../utils/datas/_customers';
+import Customer from '../../interfaces/Customer';
 
-const columnHelper = createColumnHelper<CustomerType>();
+const columnHelper = createColumnHelper<Customer>();
 const columns = [
-  columnHelper.accessor('_id', {
+  columnHelper.accessor('id', {
     header: '#',
   }),
   columnHelper.accessor('username', {
@@ -30,13 +30,10 @@ const columns = [
   columnHelper.accessor('email', {
     header: 'email',
   }),
-  columnHelper.accessor('avatar', {
-    header: 'avatar',
-    cell: (info) => <RowImageAdmin src={info.getValue()} />,
-  }),
-  columnHelper.accessor('phone', {
-    header: 'phone',
-  }),
+  // columnHelper.accessor('avatar', {
+  //   header: 'avatar',
+  //   cell: (info) => <RowImageAdmin imgSrc={info.getValue()} />,
+  // }),
   columnHelper.display({
     header: 'actions',
     cell: () => <RowActions />,
@@ -44,7 +41,8 @@ const columns = [
 ];
 
 const Customer: NextPage = () => {
-  const [data, setData] = useState<CustomerType[]>(() => [...customers]);
+  const [data, setData] = useState<Customer[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { handleOpen, btnRef } = useContext(DrawerContext);
 
   const table = useReactTable({
@@ -54,6 +52,19 @@ const Customer: NextPage = () => {
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
   });
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    fetch('/api/users')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setIsLoading(false);
+        setData(data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <Layout>
@@ -99,17 +110,23 @@ const Customer: NextPage = () => {
               </tr>
             ))}
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200 text-sm">
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
+          {data.length > 0 ? (
+            <tbody className="bg-white divide-y divide-gray-200 text-sm">
+              {table.getRowModel().rows.map((row) => (
+                <tr key={row.id}>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          ) : (
+            <tbody className="bg-white divide-y divide-gray-200 text-sm">
+              <div className="w-full">NO DATA</div>
+            </tbody>
+          )}
         </table>
       </div>
 
