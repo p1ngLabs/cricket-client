@@ -1,1 +1,1 @@
-sudo docker compose --env-file .env config
+sudo docker compose --env-file .env.local config
