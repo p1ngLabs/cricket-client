@@ -91,7 +91,7 @@ const Customer: NextPage = () => {
         </button>
       </div>
 
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto overflow-y-hidden">
         <table className="min-w-full divide-y">
           <thead className="bg-gray-50">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -110,23 +110,17 @@ const Customer: NextPage = () => {
               </tr>
             ))}
           </thead>
-          {data.length > 0 ? (
-            <tbody className="bg-white divide-y divide-gray-200 text-sm">
-              {table.getRowModel().rows.map((row) => (
-                <tr key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          ) : (
-            <tbody className="bg-white divide-y divide-gray-200 text-sm">
-              <div className="w-full">NO DATA</div>
-            </tbody>
-          )}
+          <tbody className="bg-white divide-y divide-gray-200 text-sm">
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
 
