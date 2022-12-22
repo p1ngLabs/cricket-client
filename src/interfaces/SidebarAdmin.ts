@@ -1,6 +1,6 @@
 import { MdDashboard } from 'react-icons/md';
 import { ImBooks } from 'react-icons/im';
-import { FaListUl, FaUser, FaUsers } from 'react-icons/fa';
+import { FaListUl, FaUsers } from 'react-icons/fa';
 import { BsCartCheckFill, BsGearFill } from 'react-icons/bs';
 import { IconType } from 'react-icons/lib';
 
@@ -35,11 +35,6 @@ const sidebarContents: SidebarType[] = [
     title: 'Đơn hàng',
     icon: BsCartCheckFill,
     link: '/admin/orders',
-  },
-  {
-    title: 'Nhân viên',
-    icon: FaUser,
-    link: '/admin/staffs',
   },
   {
     title: 'Cài đặt',
