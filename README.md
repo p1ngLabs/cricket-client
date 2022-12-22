@@ -1,3 +1,3 @@
 # The Cricket Project
 
-A local library in Hanoi
+A local library and bookstore in Hanoi
