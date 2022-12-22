@@ -2,23 +2,21 @@ import NextAuth from 'next-auth';
 import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 import DiscordProvider from 'next-auth/providers/discord';
+import config from '../../../../config/config';
 
 export const authOptions = {
   providers: [
     FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID || '',
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || '',
-      allowDangerousEmailAccountLinking: true,
+      clientId: config.oauth.facebook.clientId,
+      clientSecret: config.oauth.facebook.clientSecret,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-      allowDangerousEmailAccountLinking: true,
+      clientId: config.oauth.google.clientId,
+      clientSecret: config.oauth.google.clientSecret,
     }),
     DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID || '',
-      clientSecret: process.env.DISCORD_CLIENT_SECRET || '',
-      allowDangerousEmailAccountLinking: true,
+      clientId: config.oauth.discord.clientId,
+      clientSecret: config.oauth.discord.clientSecret,
     }),
   ],
 };
