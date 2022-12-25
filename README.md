@@ -11,13 +11,14 @@ A local library and bookstore in Hanoi
 * OAuth2
   * [NextAuth](https://next-auth.js.org/)
 
-
 ## Setting up development environment
 
 * Clone the project then install dependencies using yarn
 
   ```sh
-  cd cricket-project && yarn
+  cd cricket-project
+
+  yarn
   ```
 
 * Copy the `.env.example` file into `.env` file then update the values accordingly
