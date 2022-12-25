@@ -35,11 +35,11 @@ A local library and bookstore in Hanoi
 
 * If using [Docker](https://www.docker.com/), set up mock database with the following commands from this directory:
 
-  * Install [Knex](https://knexjs.org/) migrations CLI globally, run `npm install knex -g`
+  * Install [Knex](https://knexjs.org/) migrations CLI globally, run `npm install -g knex`
 
   * Start the [PostgreSQL](https://postgresql.org/) database in Docker container, run `docker compose --env-file .env up`
 
-  * Migrate tables and datas, run
+  * Creating migrations and seeds by scripts, run 
 
   ```sh
   yarn migrate:latest

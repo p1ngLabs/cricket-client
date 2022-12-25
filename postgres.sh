@@ -1,1 +1,0 @@
-sudo docker compose --env-file .env.local config
