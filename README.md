@@ -14,10 +14,12 @@ A local library and bookstore in Hanoi
 
 ## Setting up development environment
 
-* Clone the project then install dependencies using yarn
+* Clone the project then install dependencies using `yarn`
 
   ```sh
-  cd cricket-project && yarn
+  cd cricket-project
+
+  yarn
   ```
 
 * Copy the `.env.example` file into `.env` file then update the values accordingly
@@ -38,7 +40,7 @@ A local library and bookstore in Hanoi
 
   * Start the [PostgreSQL](https://postgresql.org/) database in Docker container, run `docker compose --env-file .env up`
 
-  * Migrate tables and datas, run
+  * Migrate tables and seed your database, run
 
   ```sh
   yarn migrate:latest

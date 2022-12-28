@@ -8,11 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "migrate:make": "knex migrate:make --env development",
-    "migrate:list": "knex migrate:list --env development",
-    "migrate:latest": "knex migrate:latest --env development",
-    "seed:make": "knex seed:make --env development",
-    "seed:run": "knex seed:run --env development"
+    "migrate:list": "knex migrate:list",
+    "migrate:make": "knex migrate:make",
+    "migrate:latest": "knex migrate:latest",
+    "migrate:up": "knex migrate:up",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed:make": "knex seed:make",
+    "seed:run": "knex seed:run"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.7",
