@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import knex from '../../../database/db';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const users = await knex.select('*').from('users');
+  const cates = await knex.select('*').from('categories');
 
-  res.status(200).json(users);
+  res.status(200).json(cates);
 };
 
 export default handler;
