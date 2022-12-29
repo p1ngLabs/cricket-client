@@ -1,7 +1,7 @@
 import { Knex } from 'knex';
 
 export async function seed(knex: Knex): Promise<void> {
-  // Deletes ALL existing entries
+  // deletes all existing entries
   await knex('users').del();
   await knex('social_profiles').del();
   await knex('orders').del();
@@ -11,7 +11,7 @@ export async function seed(knex: Knex): Promise<void> {
   await knex('sale_books').del();
   await knex('orders_books').del();
 
-  // Inserts seed entries
+  // inserts seed entries
   await knex('users').insert([
     {
       id: 1,
