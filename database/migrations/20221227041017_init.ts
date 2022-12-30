@@ -6,8 +6,8 @@ export async function up(knex: Knex): Promise<void> {
       table.increments().primary({ constraintName: 'users.primary_key' });
       table.string('first_name', 50);
       table.string('last_name', 50);
-      table.string('username').index().notNullable();
-      table.string('email').index().unique().notNullable();
+      table.string('username').notNullable().index();
+      table.string('email').unique().notNullable().index();
       table.string('password');
       table.string('phone');
       table.string('profile_picture');
@@ -20,8 +20,7 @@ export async function up(knex: Knex): Promise<void> {
       table
         .integer('user_id')
         .unsigned()
-        .references('id')
-        .inTable('users')
+        .references('users.id')
         .onUpdate('cascade')
         .onDelete('cascade');
       table.string('provider_type');
@@ -31,7 +30,7 @@ export async function up(knex: Knex): Promise<void> {
     })
     .createTable('orders', (table) => {
       table.increments().primary({ constraintName: 'orders.primary_key' });
-      table.integer('user_id').unsigned().references('id').inTable('users').onUpdate('cascade');
+      table.integer('user_id').unsigned().references('users.id').onUpdate('cascade');
       table.string('payment_method');
       table.enu('payment_status', ['paid', 'unpaid']);
       table.string('shipping_type');
@@ -45,7 +44,7 @@ export async function up(knex: Knex): Promise<void> {
     })
     .createTable('authors', (table) => {
       table.increments().primary({ constraintName: 'authors.primary_key' });
-      table.string('name').index().unique().notNullable();
+      table.string('name').unique().notNullable().index();
       table.text('description');
       table.string('slug');
       table.timestamps(true, true);
@@ -53,21 +52,16 @@ export async function up(knex: Knex): Promise<void> {
     .createTable('categories', (table) => {
       table.increments().primary({ constraintName: 'categories.primary_key' });
       table.integer('parent_id').unsigned();
-      table.string('name').index().unique().notNullable();
+      table.string('name').unique().notNullable().index();
       table.string('slug');
       table.boolean('active');
       table.timestamps(true, true);
     })
     .createTable('books', (table) => {
       table.increments().primary({ constraintName: 'books.primary_key' });
-      table
-        .integer('category_id')
-        .unsigned()
-        .references('id')
-        .inTable('categories')
-        .onUpdate('cascade');
-      table.integer('author_id').unsigned().references('id').inTable('authors').onUpdate('cascade');
-      table.string('title').index().notNullable();
+      table.integer('category_id').unsigned().references('categories.id').onUpdate('cascade');
+      table.integer('author_id').unsigned().references('authors.id').onUpdate('cascade');
+      table.string('title').notNullable().index();
       table.text('description');
       table.string('publisher').index();
       table.string('published_date');
@@ -90,8 +84,7 @@ export async function up(knex: Knex): Promise<void> {
       table
         .integer('book_id')
         .unsigned()
-        .references('id')
-        .inTable('books')
+        .references('books.id')
         .onUpdate('cascade')
         .onDelete('cascade');
       table.integer('sale_price').index();
@@ -100,9 +93,8 @@ export async function up(knex: Knex): Promise<void> {
       table.timestamps(true, true);
     })
     .createTable('orders_books', (table) => {
-      table.increments().primary({ constraintName: 'orders_books.primary_key' });
-      table.integer('order_id').unsigned().references('id').inTable('orders').onUpdate('cascade');
-      table.integer('book_id').unsigned().references('id').inTable('books').onUpdate('cascade');
+      table.integer('order_id').unsigned().references('orders.id').onUpdate('cascade');
+      table.integer('book_id').unsigned().references('books.id').onUpdate('cascade');
       table.timestamps(true, true);
     });
 }
