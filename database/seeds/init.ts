@@ -1,17 +1,17 @@
 import { Knex } from 'knex';
 
 export async function seed(knex: Knex): Promise<void> {
-  // Deletes ALL existing entries
+  // deletes all existing entries
+  await knex('orders_books').del();
+  await knex('orders').del();
   await knex('users').del();
   await knex('social_profiles').del();
-  await knex('orders').del();
+  await knex('books').del();
   await knex('authors').del();
   await knex('categories').del();
-  await knex('books').del();
   await knex('sale_books').del();
-  await knex('orders_books').del();
 
-  // Inserts seed entries
+  // inserts seed entries
   await knex('users').insert([
     {
       id: 1,
@@ -20,8 +20,8 @@ export async function seed(knex: Knex): Promise<void> {
       username: 'phuc1nguyen',
       email: 'phuc.ng13988@gmail.com',
       password: '123456',
-      phone: '0918201398',
-      profile_picture: '',
+      phone: '0918200000',
+      profile_picture: 'https://cdn.discordapp.com/embed/avatars/4.png',
       role: 'admin',
       active: true,
     },
@@ -32,12 +32,13 @@ export async function seed(knex: Knex): Promise<void> {
       username: 'khanhnguyen',
       email: 'khan.ng13988@gmail.com',
       password: '123456',
-      phone: '0941926468',
+      phone: '0941920000',
       profile_picture: '',
       role: 'customer',
       active: true,
     },
   ]);
+
   await knex('social_profiles').insert([
     {
       id: 1,
@@ -47,11 +48,12 @@ export async function seed(knex: Knex): Promise<void> {
       image: 'https://cdn.discordapp.com/embed/avatars/4.png',
     },
   ]);
+
   await knex('orders').insert([
     {
       id: 1,
       user_id: 1,
-      payment_method: 'cod',
+      payment_method: 'cash',
       payment_status: 'paid',
       shipping_type: 'pick up',
       shipping_address: JSON.stringify({
@@ -67,6 +69,7 @@ export async function seed(knex: Knex): Promise<void> {
       is_cart: false,
     },
   ]);
+
   await knex('authors').insert([
     {
       id: 1,
@@ -76,9 +79,11 @@ export async function seed(knex: Knex): Promise<void> {
       slug: 'frank-herbert',
     },
   ]);
+
   await knex('categories').insert([
     { id: 1, parent_id: 0, name: 'Science Fiction', slug: 'science-fiction', active: true },
   ]);
+
   await knex('books').insert([
     {
       id: 1,
@@ -103,6 +108,7 @@ export async function seed(knex: Knex): Promise<void> {
       active: true,
     },
   ]);
+
   await knex('sale_books').insert([
     {
       id: 1,
@@ -112,9 +118,9 @@ export async function seed(knex: Knex): Promise<void> {
       end_sale: null,
     },
   ]);
+
   await knex('orders_books').insert([
     {
-      id: 1,
       order_id: 1,
       book_id: 1,
     },

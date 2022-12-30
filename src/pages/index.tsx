@@ -9,10 +9,6 @@ const currentYear = new Date().getFullYear();
 const Home: NextPage = () => {
   const { data: session } = useSession();
 
-  if (session) {
-    console.log(session.user);
-  }
-
   return (
     <div>
       <Head>

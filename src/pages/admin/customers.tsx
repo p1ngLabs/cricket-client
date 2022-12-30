@@ -30,10 +30,10 @@ const columns = [
   columnHelper.accessor('email', {
     header: 'email',
   }),
-  // columnHelper.accessor('avatar', {
-  //   header: 'avatar',
-  //   cell: (info) => <RowImageAdmin imgSrc={info.getValue()} />,
-  // }),
+  columnHelper.accessor('profile_picture', {
+    header: 'avatar',
+    cell: (info) => <RowImageAdmin imgSrc={info.getValue()} />,
+  }),
   columnHelper.display({
     header: 'actions',
     cell: () => <RowActions />,
@@ -42,7 +42,7 @@ const columns = [
 
 const Customer: NextPage = () => {
   const [data, setData] = useState<Customer[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { handleOpen, btnRef } = useContext(DrawerContext);
 
   const table = useReactTable({
@@ -54,16 +54,17 @@ const Customer: NextPage = () => {
   });
 
   useEffect(() => {
-    setIsLoading(true);
+    const fetchUsers = async () => {
+      await fetch('/api/customers')
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+          setIsLoading(false);
+        })
+        .catch((err) => console.error(err));
+    };
 
-    fetch('/api/users')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setIsLoading(false);
-        setData(data);
-      })
-      .catch((err) => console.error(err));
+    if (isLoading) fetchUsers();
   }, []);
 
   return (
@@ -91,6 +92,7 @@ const Customer: NextPage = () => {
         </button>
       </div>
 
+      {/* TODO: abstract table code to another component */}
       <div className="w-full overflow-x-auto overflow-y-hidden">
         <table className="min-w-full divide-y">
           <thead className="bg-gray-50">
