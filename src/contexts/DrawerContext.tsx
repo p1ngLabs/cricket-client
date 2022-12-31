@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useRef, useState } from 'react';
 import { useDisclosure } from '@chakra-ui/react';
-import DrawerContextInterface, { DrawerSizesType } from '../interfaces/Drawer';
+import DrawerContextInterface, { DrawerSizesType } from '@interfaces/Drawer';
 
 const DrawerContext = createContext({} as DrawerContextInterface);
 

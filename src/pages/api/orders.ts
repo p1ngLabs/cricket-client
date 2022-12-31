@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import knex from '../../../database/db';
-import Order from '../../interfaces/Order';
+import knex from '@database/db';
+import Order from '@interfaces/Order';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const orders = await knex<Order>('orders').select('*');

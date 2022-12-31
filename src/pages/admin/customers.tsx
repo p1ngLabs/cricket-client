@@ -1,6 +1,6 @@
 import { NextPage } from 'next/types';
 import { useState, useContext, useEffect } from 'react';
-import Layout from '../../layouts/LayoutAdmin';
+import Layout from '@layouts/LayoutAdmin';
 import { CustomerDrawer, RowImageAdmin, RowActions } from '../../components/index';
 import {
   createColumnHelper,
@@ -17,7 +17,7 @@ import {
   HiChevronDoubleRight,
 } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
-import Customer from '../../interfaces/Customer';
+import Customer from '@interfaces/Customer';
 
 const columnHelper = createColumnHelper<Customer>();
 const columns = [
