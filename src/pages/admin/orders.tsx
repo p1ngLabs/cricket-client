@@ -1,8 +1,8 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Layout from '@layouts/LayoutAdmin';
 
-const Order: NextPage = () => {
+const OrderPage: NextPage = () => {
   return <Layout>orders...</Layout>;
 };
 
-export default Order;
+export default OrderPage;

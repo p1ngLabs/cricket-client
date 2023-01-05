@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Layout from '@layouts/LayoutAdmin';
 
 const Dashboard: NextPage = () => {

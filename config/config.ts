@@ -1,11 +1,6 @@
+import { SocialProviders } from '@interfaces/SocialProviders';
 import * as dotenv from 'dotenv';
 dotenv.config();
-
-// TODO: refactor oauth interfaces
-interface oauthInterface {
-  clientId: string;
-  clientSecret: string;
-}
 
 export interface Config {
   db: {
@@ -19,9 +14,10 @@ export interface Config {
     };
   };
   oauth: {
-    facebook: oauthInterface;
-    google: oauthInterface;
-    discord: oauthInterface;
+    [key in SocialProviders]: {
+      clientId: string;
+      clientSecret: string;
+    };
   };
 }
 

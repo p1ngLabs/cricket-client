@@ -1,8 +1,14 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Layout from '@layouts/LayoutAdmin';
+import { CategoryDrawer, PageTitle } from '@components/index';
 
-const Category: NextPage = () => {
-  return <Layout>book categories...</Layout>;
+const CategoryPage: NextPage = () => {
+  return (
+    <Layout>
+      <CategoryDrawer />
+      <PageTitle />
+    </Layout>
+  );
 };
 
-export default Category;
+export default CategoryPage;

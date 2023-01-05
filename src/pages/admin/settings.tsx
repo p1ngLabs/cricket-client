@@ -1,8 +1,8 @@
-import type { NextPage } from 'next';
+import { NextPage } from 'next/types';
 import Layout from '@layouts/LayoutAdmin';
 
-const Settings: NextPage = () => {
+const SettingsPage: NextPage = () => {
   return <Layout>settings...</Layout>;
 };
 
-export default Settings;
+export default SettingsPage;
