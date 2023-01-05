@@ -1,7 +1,7 @@
 // import { MdNightlight, MdWbSunny } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/image';
-import avatar from 'public/avatar.png';
+import avatar from 'public/images/avatar.png';
 
 const Header = () => {
   return (

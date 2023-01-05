@@ -2,7 +2,7 @@ import NextLink from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
-import logoBlack from 'public/logo-black-transparent.png';
+import logoBlack from 'public/images/logo-black-transparent.png';
 // import logoWhite from 'public/logo-white-transparent.png';
 import sidebarContents from '@interfaces/SidebarAdmin';
 

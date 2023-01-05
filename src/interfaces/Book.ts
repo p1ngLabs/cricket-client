@@ -1,6 +1,6 @@
 export default interface Book {
   id: number;
-  category_id: string;
+  category_id: number;
   author_id: number;
   title: string;
   description: string;

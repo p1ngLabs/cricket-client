@@ -7,27 +7,22 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Input,
   Button,
 } from '@chakra-ui/react';
-import DrawerContext from '../../contexts/DrawerContext';
+import DrawerContext from 'src/contexts/DrawerContext';
 
 const CoreDrawer = (props: { children?: ReactNode }) => {
   const { children } = props;
-  const { isOpen, onClose, btnRef, size } = useContext(DrawerContext);
+  const { pageTitle, isOpen, onClose, btnRef, size } = useContext(DrawerContext);
 
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef} size={size}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        {/* TODO: make dynamic drawer header */}
-        <DrawerHeader>Thêm khách hàng</DrawerHeader>
+        <DrawerHeader>Thêm {pageTitle?.toLowerCase()}</DrawerHeader>
 
-        <DrawerBody>
-          <Input placeholder="Type here..." />
-          {children}
-        </DrawerBody>
+        <DrawerBody>{children}</DrawerBody>
 
         <DrawerFooter>
           <Button variant="outline" mr={3} onClick={onClose}>
