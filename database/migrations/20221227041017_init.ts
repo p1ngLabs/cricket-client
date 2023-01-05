@@ -10,7 +10,8 @@ export async function up(knex: Knex): Promise<void> {
       table.string('email').unique().notNullable().index();
       table.string('password');
       table.string('phone');
-      table.string('profile_picture');
+      table.string('avatar');
+      table.enu('gender', ['Female', 'Male', 'Other']);
       table.enu('role', ['admin', 'customer']).defaultTo('customer');
       table.boolean('active');
       table.timestamps(true, true);
@@ -23,7 +24,7 @@ export async function up(knex: Knex): Promise<void> {
         .references('users.id')
         .onUpdate('cascade')
         .onDelete('cascade');
-      table.string('provider_type');
+      table.string('provider');
       table.string('username');
       table.string('image');
       table.timestamps(true, true);

@@ -19,6 +19,11 @@ const nextConfig = {
         hostname: 'scontent.fhan19-1.fna.fbcdn.net',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'robohash.org',
+        pathname: '/**',
+      },
     ],
   },
 };
