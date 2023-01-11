@@ -1,11 +1,6 @@
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
-import { Footer } from '@components/index';
-
-const Header = dynamic(() => import('@components/header/Header'), {
-  ssr: false,
-});
+import { Header, Footer } from '@components/index';
 
 const Layout = (props: { children: ReactNode }) => {
   const { children } = props;
