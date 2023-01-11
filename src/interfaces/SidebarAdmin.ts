@@ -7,39 +7,39 @@ import { IconType } from 'react-icons/lib';
 export interface Sidebar {
   title: string;
   icon: IconType;
-  link: string;
+  url: string;
 }
 
 const sidebarContents: Sidebar[] = [
   {
     title: 'Tổng quan',
     icon: MdDashboard,
-    link: '/admin',
+    url: '/admin',
   },
   {
     title: 'Sách',
     icon: ImBooks,
-    link: '/admin/books',
+    url: '/admin/books',
   },
   {
     title: 'Danh mục sách',
     icon: FaListUl,
-    link: '/admin/categories',
+    url: '/admin/categories',
   },
   {
     title: 'Khách hàng',
     icon: FaUsers,
-    link: '/admin/customers',
+    url: '/admin/customers',
   },
   {
     title: 'Đơn hàng',
     icon: BsCartCheckFill,
-    link: '/admin/orders',
+    url: '/admin/orders',
   },
   {
     title: 'Cài đặt',
     icon: BsGearFill,
-    link: '/admin/settings',
+    url: '/admin/settings',
   },
 ];
 

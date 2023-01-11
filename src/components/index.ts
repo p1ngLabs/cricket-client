@@ -1,7 +1,12 @@
-import Header from './header/HeaderAdmin';
-import Sidebar from './SidebarAdmin';
-import RowImageAdmin from './RowImageAdmin';
-import RowActions from './RowActions';
+import HeaderAdmin from './header/HeaderAdmin';
+import Header from './header/Header';
+import Footer from './footer/Footer';
+import Navbar from './navbar/Navbar';
+import Searchbar from './search/Searchbar';
+import Newsletter from './newsletter/Newsletter';
+import SidebarAdmin from './sidebar/SidebarAdmin';
+import RowImageAdmin from './row/RowImageAdmin';
+import RowActions from './row/RowActions';
 import BookDrawer from './drawer/BookDrawer';
 import CategoryDrawer from './drawer/CategoryDrawer';
 import Loading from './loader/Loading';
@@ -9,8 +14,13 @@ import PageTitle from './title/PageTitle';
 import TablePagination from './table/TablePagination';
 
 export {
+  HeaderAdmin,
   Header,
-  Sidebar,
+  Footer,
+  Navbar,
+  Searchbar,
+  Newsletter,
+  SidebarAdmin,
   RowImageAdmin,
   RowActions,
   BookDrawer,

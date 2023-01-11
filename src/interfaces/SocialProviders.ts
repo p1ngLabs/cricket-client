@@ -1,1 +1,3 @@
-export type SocialProviders = 'facebook' | 'google' | 'discord';
+type SocialProviders = 'facebook' | 'google' | 'discord';
+
+export default SocialProviders;

@@ -21,13 +21,13 @@ const SidebarAdmin = () => {
           <ListItem
             key={item.title}
             className={`relative font-bold ${
-              router.pathname === item.link ? 'text-blue-500' : 'text-gray-500'
+              router.pathname === item.url ? 'text-blue-500' : 'text-gray-500'
             }`}
           >
-            {router.pathname === item.link && (
+            {router.pathname === item.url && (
               <span className="absolute h-full left-0 top-0 w-1 rounded-r-lg bg-blue-500" />
             )}
-            <NextLink href={item.link} className="block py-4 px-6">
+            <NextLink href={item.url} className="block py-4 px-6">
               <ListIcon as={item.icon} className="text-xl" />
               {item.title}
             </NextLink>
