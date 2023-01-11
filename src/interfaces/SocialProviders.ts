@@ -1,7 +1,3 @@
-enum SocialProviders {
-  facebook = 'facebook',
-  google = 'google',
-  discord = 'discord',
-}
+type SocialProviders = 'facebook' | 'google' | 'discord';
 
 export default SocialProviders;

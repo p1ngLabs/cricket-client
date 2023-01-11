@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { ListItem, UnorderedList } from '@chakra-ui/react';
+import { List, ListItem } from '@chakra-ui/react';
 
 interface Navbar {
   title: string;
@@ -12,8 +12,8 @@ const navbarContents: Navbar[] = [
     url: '/',
   },
   {
-    title: 'Books',
-    url: '/books',
+    title: 'Categories',
+    url: '/categories',
   },
   {
     title: 'Blog',
@@ -27,7 +27,7 @@ const navbarContents: Navbar[] = [
 
 const Navbar = () => {
   return (
-    <UnorderedList styleType="none" className="hidden sm:flex items-center mr-auto">
+    <List className="hidden sm:flex items-center mr-auto">
       {navbarContents.map((item) => (
         <ListItem key={item.title}>
           <NextLink
@@ -38,7 +38,7 @@ const Navbar = () => {
           </NextLink>
         </ListItem>
       ))}
-    </UnorderedList>
+    </List>
   );
 };
 

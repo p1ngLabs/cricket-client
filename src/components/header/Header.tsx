@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { Navbar, Searchbar } from '@components/index';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
 import { FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
@@ -9,7 +8,7 @@ import cricketLogo from 'public/images/logo-white-transparent.png';
 const Header = () => {
   return (
     <header id="header" className="bg-dark py-2">
-      <div className="flex items-center container mx-auto">
+      <div className="flex items-center sm:w-5/6 mx-auto">
         <div className="flex items-center mr-auto w-20 sm:w-20">
           <Image src={cricketLogo} className="pl-4 sm:pl-0" alt="logo" priority />
           <Navbar />

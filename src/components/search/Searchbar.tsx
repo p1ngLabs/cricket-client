@@ -13,7 +13,7 @@ const Searchbar = () => {
           type="search"
           placeholder="Search for books, authors"
           focusBorderColor="none"
-          bg="white"
+          bgColor="white"
         />
         <InputRightAddon className="cursor-pointer" fontSize="xl" onClick={handleSubmit}>
           <FiSearch onClick={handleSubmit} />

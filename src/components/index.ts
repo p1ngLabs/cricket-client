@@ -3,6 +3,7 @@ import Header from './header/Header';
 import Footer from './footer/Footer';
 import Navbar from './navbar/Navbar';
 import Searchbar from './search/Searchbar';
+import Newsletter from './newsletter/Newsletter';
 import SidebarAdmin from './sidebar/SidebarAdmin';
 import RowImageAdmin from './row/RowImageAdmin';
 import RowActions from './row/RowActions';
@@ -18,6 +19,7 @@ export {
   Footer,
   Navbar,
   Searchbar,
+  Newsletter,
   SidebarAdmin,
   RowImageAdmin,
   RowActions,
