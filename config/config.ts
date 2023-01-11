@@ -1,4 +1,4 @@
-import { SocialProviders } from '@interfaces/SocialProviders';
+import SocialProviders from '@interfaces/SocialProviders';
 import * as dotenv from 'dotenv';
 dotenv.config();
 

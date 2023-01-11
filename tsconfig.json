@@ -23,7 +23,9 @@
       "@interfaces/*": ["src/interfaces/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@database/*": ["database/*"]
+      "@database/*": ["database/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"],
     }
   },
   "include": [
