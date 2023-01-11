@@ -7,7 +7,7 @@ const handleSubmit = () => {
 
 const Searchbar = () => {
   return (
-    <form action="/search" method="GET" className="search w-96 mr-4 hidden sm:block">
+    <form className="search w-96 mr-4 hidden sm:block">
       <InputGroup>
         <Input
           type="search"

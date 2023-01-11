@@ -10,7 +10,7 @@ const Header = () => {
     <header id="header" className="bg-dark py-2">
       <div className="flex items-center sm:w-5/6 mx-auto">
         <div className="flex items-center mr-auto w-20 sm:w-20">
-          <Image src={cricketLogo} className="pl-4 sm:pl-0" alt="logo" priority />
+          <Image src={cricketLogo} className="mr-2 pl-4 sm:pl-0" alt="logo" priority />
           <Navbar />
         </div>
 

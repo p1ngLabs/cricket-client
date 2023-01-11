@@ -9,7 +9,7 @@ const Newsletter = () => {
         </Heading>
         <Heading size="sm">To receive exclusive offers and deals</Heading>
       </div>
-      <form method="POST" action="/api/subscribe" className="flex sm:ml-auto gap-2">
+      <form className="flex sm:ml-auto gap-2">
         <Input
           type="text"
           bgColor="white"

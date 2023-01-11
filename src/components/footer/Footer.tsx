@@ -21,10 +21,10 @@ const Footer = () => {
       )}
 
       <div className="container mx-auto w-11/12 sm:w-full">
-        <div className="flex flex-col sm:flex-row sm:justify-between items-start py-8 sm:h-52">
+        <div className="flex flex-col sm:flex-row sm:justify-between items-start py-10 sm:h-60">
           <div className="footer-left">
-            <Heading size="lg">{process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}</Heading>
-            <p className="max-w-sm mt-2">
+            <Heading size="md">{process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}</Heading>
+            <p className="max-w-sm mt-3">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod consectetur blanditiis
               molestias, expedita sit optio, voluptas officiis fuga tenetur, saepe maxime ipsam at!
               Voluptas sapiente, nam sed dicta ad ut.
@@ -47,7 +47,7 @@ const Footer = () => {
               </ListItem>
             </List>
 
-            <Stack direction="row" spacing={4} className="mt-4">
+            <Stack direction="row" spacing={4} className="mt-5">
               <NextLink
                 href="https://www.facebook.com/thecricketproject.hn"
                 target="_blank"
