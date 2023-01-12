@@ -1,5 +1,4 @@
 import NextLink from 'next/link';
-import { List, ListItem } from '@chakra-ui/react';
 
 interface Navbar {
   title: string;
@@ -27,18 +26,15 @@ const navbarContents: Navbar[] = [
 
 const Navbar = () => {
   return (
-    <List className="hidden sm:flex items-center mr-auto">
+    <ul className="hidden sm:flex items-center mr-auto">
       {navbarContents.map((item) => (
-        <ListItem key={item.title}>
-          <NextLink
-            href={item.url}
-            className="px-4 py-2 font-bold rounded text-white hover:text-gray-400"
-          >
+        <li key={item.title} className="font-bold text-white hover:text-gray-500 rounded">
+          <NextLink href={item.url} className="px-4 py-2">
             {item.title.toUpperCase()}
           </NextLink>
-        </ListItem>
+        </li>
       ))}
-    </List>
+    </ul>
   );
 };
 

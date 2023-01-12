@@ -5,6 +5,7 @@ module.exports = {
     './src/components/**/*.{ts,tsx}',
     './src/layouts/*.{ts,tsx}',
   ],
+  darkMode: 'class',
   theme: {
     screens: {
       // https://tailwindcss.com/docs/screens
@@ -15,10 +16,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        dark: '#282828',
-        gray: '#f4f4f4',
+        cricket_dark: '#282828',
+        cricket_gray: '#f4f4f4',
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    // themes: ['light', 'dark', 'forest'],
+    themes: false,
+  },
 };

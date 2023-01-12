@@ -1,13 +1,11 @@
 // import { MdNightlight, MdWbSunny } from 'react-icons/md';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import Image from 'next/image';
 import avatar from 'public/images/avatar.png';
 
 const Header = () => {
   return (
     <header className="h-16 myBoxShadow z-10">
-      <div className="container flex items-center justify-between px-6 h-full mx-auto text-blue-500">
-        <GiHamburgerMenu className="cursor-pointer text-lg lg:hidden" />
+      <div className="flex items-center justify-between px-6 h-full mx-auto text-blue-500">
         <div className="flex items-center ml-auto space-x-6">
           {/* TODO: make toggle dark mode */}
           {/* <button type="button" className="text-xl">

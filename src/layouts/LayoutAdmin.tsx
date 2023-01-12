@@ -14,7 +14,7 @@ const Layout = (props: { children?: ReactNode }) => {
         <SidebarAdmin />
         <div className="flex flex-col w-full">
           <HeaderAdmin />
-          <main className="bg-gray-100 h-full overflow-y-auto">
+          <main className="bg-cricket_gray h-full overflow-y-auto">
             <div className="container mx-auto p-6">{children}</div>
           </main>
         </div>
