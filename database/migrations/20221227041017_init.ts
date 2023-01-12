@@ -24,7 +24,7 @@ export async function up(knex: Knex): Promise<void> {
         .references('users.id')
         .onUpdate('cascade')
         .onDelete('cascade');
-      table.string('provider');
+      table.string('provider').index();
       table.string('username');
       table.string('image');
       table.timestamps(true, true);
