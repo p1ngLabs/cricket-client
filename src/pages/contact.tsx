@@ -16,7 +16,7 @@ const ContactPage: NextPage = () => {
         <h1 className="mb-4 text-center font-bold text-4xl">GET IN TOUCH</h1>
         <form className="flex flex-col w-2/4 mx-auto gap-4">
           <div className="form-control">
-            <input id="name" type="text" placeholder="Your name" className="input input-bordered" />
+            <input id="name" type="text" placeholder="Name" className="input input-bordered" />
           </div>
           <div className="form-control">
             <input id="email" type="email" placeholder="Email" className="input input-bordered" />
