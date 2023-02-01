@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center text-xs py-2 opacity-70">
-        &copy; {currentYear} {process.env.NEXT_PUBLIC_APP_NAME}
+        {process.env.NEXT_PUBLIC_APP_NAME} &copy; {currentYear}
       </p>
     </footer>
   );

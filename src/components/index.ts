@@ -11,6 +11,7 @@ import RowActions from './row/RowActions';
 import Loader from './loader/Loader';
 import PageTitle from './title/PageTitle';
 import TablePagination from './table/TablePagination';
+import CustomerDrawer from './drawer/CustomerDrawer';
 
 export {
   HeaderAdmin,
@@ -26,4 +27,5 @@ export {
   Loader,
   PageTitle,
   TablePagination,
+  CustomerDrawer,
 };
