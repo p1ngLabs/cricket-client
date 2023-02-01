@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import { Header, Footer } from '@components/index';
+import { Montserrat } from '@next/font/google';
+
+const font = Montserrat({ weight: ['400', '600', '800', '900'], subsets: ['latin', 'vietnamese'] });
 
 const Layout = (props: { children: ReactNode }) => {
   const { children } = props;
@@ -13,7 +16,7 @@ const Layout = (props: { children: ReactNode }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col min-h-screen w-full">
+      <div className={`flex flex-col min-h-screen w-full ${font.className}`}>
         <Header />
         <main className="flex-1 container mx-auto text-sm">{children}</main>
         <Footer />
