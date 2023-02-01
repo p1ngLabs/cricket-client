@@ -10,6 +10,7 @@ import RowImageAdmin from './row/RowImageAdmin';
 import RowActions from './row/RowActions';
 import Loader from './loader/Loader';
 import PageTitle from './title/PageTitle';
+import SectionTitle from './title/SectionTitle';
 import TablePagination from './table/TablePagination';
 import CustomerDrawer from './drawer/CustomerDrawer';
 
@@ -26,6 +27,7 @@ export {
   RowActions,
   Loader,
   PageTitle,
+  SectionTitle,
   TablePagination,
   CustomerDrawer,
 };

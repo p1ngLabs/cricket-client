@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { Newsletter } from '@components/index';
 import { HiOutlineLocationMarker, HiPhone, HiOutlineMail } from 'react-icons/hi';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
@@ -22,9 +22,9 @@ const Footer = () => {
       <div className="container mx-auto w-11/12 sm:w-full">
         <div className="flex flex-col md:flex-row md:justify-between items-start py-10 md:min-h-60">
           <div className="footer-left">
-            <h2 className="font-bold text-2xl mb-3">
+            <h1 className="font-bold text-2xl mb-3">
               {process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}
-            </h2>
+            </h1>
             <p className="max-w-sm text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod consectetur blanditiis
               molestias, expedita sit optio, voluptas officiis fuga tenetur, saepe maxime ipsam at!
@@ -49,22 +49,22 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex gap-4 mt-5">
-              <NextLink
+              <Link
                 href="https://www.facebook.com/thecricketproject.hn"
                 target="_blank"
                 className="text-xl opacity-100"
                 title="Facebook"
               >
                 <BsFacebook />
-              </NextLink>
-              <NextLink
+              </Link>
+              <Link
                 href="https://www.instagram.com/cricketproject__/"
                 target="_blank"
                 className="text-xl opacity-100"
                 title="Instagram"
               >
                 <BsInstagram />
-              </NextLink>
+              </Link>
             </div>
           </div>
         </div>

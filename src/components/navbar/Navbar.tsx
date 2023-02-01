@@ -1,4 +1,4 @@
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 interface Navbar {
   title: string;
@@ -29,9 +29,9 @@ const Navbar = () => {
     <ul className="hidden md:flex items-center mr-auto">
       {navbarContents.map((item) => (
         <li key={item.title} className="font-bold text-white hover:text-gray-500 rounded">
-          <NextLink href={item.url} className="px-4 py-2">
+          <Link href={item.url} className="px-4 py-2">
             {item.title.toUpperCase()}
-          </NextLink>
+          </Link>
         </li>
       ))}
     </ul>

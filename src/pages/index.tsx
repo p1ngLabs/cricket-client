@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import banner1 from 'public/images/banner1.png';
 import banner2 from 'public/images/banner2.png';
+import { SectionTitle } from '@components/index';
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         onSwiper={(swiper) => console.log(swiper)}
         autoplay={{ delay: 2500 }}
         loop={true}
-        className="my-4 max-h-[60vh]"
+        className="mb-8 max-h-[60vh]"
       >
         <SwiperSlide>
           <Image src={banner1} alt="banner" />
@@ -27,6 +28,8 @@ const Home: NextPage = () => {
           <Image src={banner2} alt="banner" />
         </SwiperSlide>
       </Swiper>
+
+      <SectionTitle title="New Release" />
     </Layout>
   );
 };
