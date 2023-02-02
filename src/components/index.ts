@@ -13,6 +13,7 @@ import PageTitle from './title/PageTitle';
 import SectionTitle from './title/SectionTitle';
 import TablePagination from './table/TablePagination';
 import CustomerDrawer from './drawer/CustomerDrawer';
+import BookCard from './book/BookCard';
 
 export {
   HeaderAdmin,
@@ -30,4 +31,5 @@ export {
   SectionTitle,
   TablePagination,
   CustomerDrawer,
+  BookCard,
 };

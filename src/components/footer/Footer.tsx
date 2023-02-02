@@ -34,7 +34,7 @@ const Footer = () => {
 
           <div className="footer-right mt-5 md:mt-0">
             {/* TODO: get site info from db, edit in admin settings tab */}
-            <ul className="flex flex-col text-sm gap-2">
+            <ul className="flex flex-col text-xs sm:text-sm gap-2">
               <li className="flex items-center gap-2">
                 <HiOutlineLocationMarker className="text-xl" />
                 46 Trần Hưng Đạo, Hàng Bài, Hoàn Kiếm, Hà Nội, Vietnam
