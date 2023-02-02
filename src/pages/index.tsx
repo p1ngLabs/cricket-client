@@ -22,10 +22,10 @@ const Home: NextPage = () => {
         className="mb-8 max-h-[60vh]"
       >
         <SwiperSlide>
-          <Image src={banner1} alt="banner" />
+          <Image src={banner1} alt="banner" priority />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={banner2} alt="banner" />
+          <Image src={banner2} alt="banner" priority />
         </SwiperSlide>
       </Swiper>
 
