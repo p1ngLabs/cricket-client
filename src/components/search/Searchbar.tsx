@@ -4,7 +4,8 @@ const handleSubmit = () => {
 
 const Searchbar = () => {
   return (
-    <form onSubmit={handleSubmit} className="search mr-3 hidden sm:block w-full">
+    // TODO: search input slides left when click on search icon, display search icon only
+    <form onSubmit={handleSubmit} className="search mr-3 hidden md:block w-full">
       <div className="form-control">
         <div className="input-group">
           <input type="search" placeholder="Search for books, authors" className="input w-full" />

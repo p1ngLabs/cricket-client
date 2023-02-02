@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { Newsletter } from '@components/index';
 import { HiOutlineLocationMarker, HiPhone, HiOutlineMail } from 'react-icons/hi';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
@@ -20,58 +20,57 @@ const Footer = () => {
       )}
 
       <div className="container mx-auto w-11/12 sm:w-full">
-        <div className="flex flex-col sm:flex-row sm:justify-between items-start py-10 sm:h-60">
+        <div className="flex flex-col md:flex-row md:justify-between items-start py-10 md:min-h-60">
           <div className="footer-left">
-            <h2 className="font-bold text-2xl mb-3">
+            <h1 className="font-bold text-2xl mb-3">
               {process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}
-            </h2>
-            <p className="max-w-sm">
+            </h1>
+            <p className="max-w-sm text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod consectetur blanditiis
               molestias, expedita sit optio, voluptas officiis fuga tenetur, saepe maxime ipsam at!
               Voluptas sapiente, nam sed dicta ad ut.
             </p>
           </div>
 
-          <div className="footer-right mt-8 sm:mt-0">
+          <div className="footer-right mt-5 md:mt-0">
             {/* TODO: get site info from db, edit in admin settings tab */}
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col text-xs sm:text-sm gap-2">
               <li className="flex items-center gap-2">
-                <HiOutlineLocationMarker className="text-2xl" />
+                <HiOutlineLocationMarker className="text-xl" />
                 46 Trần Hưng Đạo, Hàng Bài, Hoàn Kiếm, Hà Nội, Vietnam
               </li>
               <li className="flex items-center gap-2">
-                <HiPhone className="text-2xl" />
+                <HiPhone className="text-xl" />
                 0969 465 045
               </li>
               <li className="flex items-center gap-2">
-                <HiOutlineMail className="text-2xl" />
+                <HiOutlineMail className="text-xl" />
                 thecricketproject.hn@gmail.com
               </li>
             </ul>
             <div className="flex gap-4 mt-5">
-              <NextLink
+              <Link
                 href="https://www.facebook.com/thecricketproject.hn"
                 target="_blank"
-                className="text-3xl opacity-60"
+                className="text-xl opacity-100"
                 title="Facebook"
               >
                 <BsFacebook />
-              </NextLink>
-              <NextLink
+              </Link>
+              <Link
                 href="https://www.instagram.com/cricketproject__/"
                 target="_blank"
-                className="text-3xl opacity-60"
+                className="text-xl opacity-100"
                 title="Instagram"
               >
                 <BsInstagram />
-              </NextLink>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="divider my-0 h-0" />
-      <p className="text-center py-1 opacity-70">
-        &copy; {currentYear} {process.env.NEXT_PUBLIC_APP_NAME}
+      <p className="text-center text-xs py-2 opacity-70">
+        {process.env.NEXT_PUBLIC_APP_NAME} &copy; {currentYear}
       </p>
     </footer>
   );

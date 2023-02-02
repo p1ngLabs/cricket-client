@@ -10,7 +10,7 @@ module.exports = {
     screens: {
       // https://tailwindcss.com/docs/screens
       sm: '480px', // 640px
-      md: '768px',
+      md: '770px',
       lg: '1024px',
       xl: '1280px',
     },

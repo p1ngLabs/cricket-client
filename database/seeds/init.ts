@@ -1,10 +1,4 @@
 import { Knex } from 'knex';
-import User from '@interfaces/User';
-import SocialProfile from '@interfaces/SocialProfile';
-import Order from '@interfaces/Order';
-import Author from '@interfaces/Author';
-import Book from '@interfaces/Book';
-import SaleBook from '@interfaces/SaleBook';
 
 export async function seed(knex: Knex): Promise<void> {
   // deletes all existing entries
@@ -3988,7 +3982,15 @@ export async function seed(knex: Knex): Promise<void> {
   ]);
 
   // sale_books
-  await knex('sale_books').insert([]);
+  await knex('sale_books').insert([
+    {
+      id: 1,
+      book_id: 1,
+      sale_price: null,
+      start_sale: null,
+      end_sale: null,
+    },
+  ]);
 
   // orders_books
   await knex('orders_books').insert([
