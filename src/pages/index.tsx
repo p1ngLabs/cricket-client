@@ -44,12 +44,10 @@ const Home: NextPage<HomeProps> = ({
       {newReleases.length > 0 && (
         <>
           <SectionTitle title="Best sellers" />
-          <section className="flex justify-center">
-            <div className="flex gap-4 mx-4 mb-16 pb-2 overflow-auto">
-              {newReleases.map((book) => (
-                <BookCard key={book.isbn} book={book} />
-              ))}
-            </div>
+          <section className="flex lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
+            {newReleases.map((book) => (
+              <BookCard key={book.isbn} book={book} />
+            ))}
           </section>
         </>
       )}
@@ -57,12 +55,10 @@ const Home: NextPage<HomeProps> = ({
       {allBooks.length > 0 && (
         <>
           <SectionTitle title="All books" />
-          <section className="flex justify-center">
-            <div className="flex lg:flex-wrap gap-4 mx-4 mb-16 pb-2 overflow-auto">
-              {allBooks.map((book) => (
-                <BookCard key={book.isbn} book={book} />
-              ))}
-            </div>
+          <section className="flex lg:flex-wrap lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
+            {allBooks.map((book) => (
+              <BookCard key={book.isbn} book={book} />
+            ))}
           </section>
         </>
       )}

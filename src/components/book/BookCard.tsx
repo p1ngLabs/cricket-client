@@ -8,7 +8,7 @@ const BookCard = (props: { book: Book }) => {
   return (
     <div
       key={book.isbn}
-      className="card min-w-[12rem] md:w-[18%] bg-base-100 border border-solid border-gray-300"
+      className="card min-w-[13rem] md:w-[18%] bg-base-100 border border-solid border-gray-300"
     >
       <figure className="relative px-4 pt-4">
         <Link href={`/book/${book.id}`}>
