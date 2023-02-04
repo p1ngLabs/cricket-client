@@ -28,10 +28,9 @@ const Home: NextPage<HomeProps> = ({
         modules={[Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
-        onSwiper={(swiper) => console.log(swiper)}
         autoplay={{ delay: 3000 }}
         loop={true}
-        className="mb-8 max-h-[60vh]"
+        className="mb-16 max-h-[60vh] max-w-full"
       >
         <SwiperSlide>
           <Image src={banner1} alt="banner" priority />
@@ -42,35 +41,39 @@ const Home: NextPage<HomeProps> = ({
       </Swiper>
 
       {/* TODO: abstract book section code into another component: BookCard and SectionTitle might not exist anymore */}
-      <section>
-        <SectionTitle title="New Release" />
-        <div className="items-list flex md:flex-wrap gap-4 mx-4 mb-16 pb-1 overflow-y-auto lg:overflow-hidden">
-          {newReleases.map((book) => (
-            <BookCard key={book.isbn} book={book} />
-          ))}
-        </div>
-      </section>
+      {newReleases.length > 0 && (
+        <>
+          <SectionTitle title="Best sellers" />
+          <section className="flex lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
+            {newReleases.map((book) => (
+              <BookCard key={book.isbn} book={book} />
+            ))}
+          </section>
+        </>
+      )}
 
-      <section>
-        <SectionTitle title="All products" />
-        <div className="items-list flex md:flex-wrap gap-4 mx-4 mb-16 pb-1 overflow-y-auto lg:overflow-hidden">
-          {allBooks.map((book) => (
-            <BookCard key={book.isbn} book={book} />
-          ))}
-        </div>
-      </section>
+      {allBooks.length > 0 && (
+        <>
+          <SectionTitle title="All books" />
+          <section className="flex lg:flex-wrap lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
+            {allBooks.map((book) => (
+              <BookCard key={book.isbn} book={book} />
+            ))}
+          </section>
+        </>
+      )}
 
-      {/* TODO: add 'OUR ACTIVITY' section which display instagram post (extended feature) */}
+      {/* TODO: add 'OUR ACTIVITY' section to display instagram posts and another section 'OUR BLOG' to showcase the blog (extended feature) */}
     </Layout>
   );
 };
 
 export async function getStaticProps() {
   const newReleases = await knex<Book[]>('books')
-    .select('title', 'publisher', 'price', 'isbn', 'thumbnail')
+    .select('id', 'title', 'publisher', 'price', 'isbn', 'thumbnail')
     .limit(5);
   const allBooks = await knex<Book[]>('books')
-    .select('title', 'publisher', 'price', 'isbn', 'thumbnail')
+    .select('id', 'title', 'publisher', 'price', 'isbn', 'thumbnail')
     .offset(5)
     .limit(10);
 
