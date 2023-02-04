@@ -8,10 +8,10 @@ const BookCard = (props: { book: Book }) => {
   return (
     <div
       key={book.isbn}
-      className="card w-[66%] md:w-[18%] bg-base-100 border border-solid border-cricket_dark"
+      className="card min-w-[12rem] md:w-[18%] bg-base-100 border border-solid border-gray-300"
     >
-      <figure className="px-4 pt-4">
-        <Link href="/book/{id}">
+      <figure className="relative px-4 pt-4">
+        <Link href={`/book/${book.id}`}>
           <Image
             src={book.thumbnail}
             width="100"
@@ -24,8 +24,12 @@ const BookCard = (props: { book: Book }) => {
       <div className="flex flex-col flex-auto gap-2 p-4">
         <div className="flex-grow">
           <p className="font-semibold text-red-600">{book.price?.toLocaleString('en-US')} VND</p>
-          <h2 className="font-semibold text-md my-2">{book.title}</h2>
-          <p>{book.publisher}</p>
+          <h2 className="font-semibold text-md my-1">
+            <Link href={`/book/${book.id}`} className="hover:text-blue-500">
+              {book.title}
+            </Link>
+          </h2>
+          <p className="text-xs opacity-60">{book.publisher}</p>
         </div>
         <button className="btn w-full">Add to Cart</button>
       </div>
