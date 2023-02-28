@@ -52,6 +52,10 @@ sup.required {
   object-fit: cover;
 }
 
+.gallery {
+  height: fit-content;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;

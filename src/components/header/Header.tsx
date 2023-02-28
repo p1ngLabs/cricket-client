@@ -17,7 +17,7 @@ const Header = () => {
 
         <div className="user-info flex items-center sm:w-1/3">
           <Searchbar />
-          <ul className="flex items-center gap-5 px-4 text-white">
+          <ul className="flex items-center gap-5 px-4 ml-auto text-white">
             <li className="flex items-center text-2xl md:hidden">
               <FiSearch />
             </li>
