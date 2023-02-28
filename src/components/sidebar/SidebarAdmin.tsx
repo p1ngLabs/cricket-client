@@ -2,16 +2,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import logoBlack from 'public/images/logo-black-transparent.png';
-// import logoWhite from 'public/logo-white-transparent.png';
 import sidebarContents from '@interfaces/SidebarAdmin';
 
 const SidebarAdmin = () => {
   const router = useRouter();
 
   return (
-    <aside className="relative w-64 pt-4 flex-shrink-0 overflow-y-auto hidden sm:block myBoxShadow">
+    <aside className="relative w-64 pt-4 flex-shrink-0 overflow-y-auto hidden sm:block custom-box-shadow">
       <div className="w-28 mx-auto">
-        {/* TODO: logo changes with theme */}
         <Image src={logoBlack} alt="Logo" priority />
       </div>
 

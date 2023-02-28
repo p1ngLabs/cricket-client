@@ -82,7 +82,7 @@ const CustomerPage: NextPage = () => {
         <CustomerDrawer />
 
         {/* Action bar */}
-        <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md myBoxShadow">
+        <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md custom-box-shadow">
           <input
             type="search"
             id="search"
@@ -100,7 +100,7 @@ const CustomerPage: NextPage = () => {
           <Loader />
         ) : (
           <>
-            <div className="w-full overflow-x-auto overflow-y-hidden myBoxShadow">
+            <div className="w-full overflow-x-auto overflow-y-hidden custom-box-shadow">
               <table className="min-w-full divide-y">
                 <thead className="text-gray-500">
                   {table.getHeaderGroups().map((headerGroup) => (

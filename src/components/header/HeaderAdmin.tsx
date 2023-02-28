@@ -1,19 +1,11 @@
-// import { MdNightlight, MdWbSunny } from 'react-icons/md';
 import Image from 'next/image';
 import avatar from 'public/images/avatar.png';
 
 const Header = () => {
   return (
-    <header className="h-16 myBoxShadow z-10">
+    <header className="h-16 custom-box-shadow z-10">
       <div className="flex items-center justify-between px-6 h-full mx-auto text-blue-500">
         <div className="flex items-center ml-auto space-x-6">
-          {/* TODO: make toggle dark mode */}
-          {/* <button type="button" className="text-xl">
-            <MdNightlight />
-          </button>
-          <button type="button" className="text-xl">
-            <MdWbSunny />
-          </button> */}
           <button type="button" className="rounded-full w-10 h-10 bg-blue-500">
             <Image src={avatar} className="rounded-full" alt="profile" />
           </button>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Navbar, Searchbar, HamburgerMenu } from '@components/index';
 import { FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
 import cricketLogo from 'public/images/logo-white-transparent.png';
@@ -7,10 +8,12 @@ const Header = () => {
   return (
     <header id="header" className="bg-cricket_dark text-sm py-2">
       <div className="flex items-center sm:w-5/6 mx-auto">
-        <div className="flex items-center mr-auto w-20 sm:w-16">
-          <Image src={cricketLogo} className="mr-2 pl-4 sm:pl-0" alt="logo" priority />
+        <nav className="flex items-center mr-auto">
+          <Link href="/" className="w-16 mr-2 pl-4 sm:pl-0">
+            <Image src={cricketLogo} className="hover:opacity-60" alt="logo" priority />
+          </Link>
           <Navbar />
-        </div>
+        </nav>
 
         <div className="user-info flex items-center sm:w-1/3">
           <Searchbar />

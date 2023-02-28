@@ -41,11 +41,13 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <HiPhone className="text-xl" />
-                0969 465 045
+                <Link href="tel:+84969465045">0969 465 045</Link>
               </li>
               <li className="flex items-center gap-2">
                 <HiOutlineMail className="text-xl" />
-                thecricketproject.hn@gmail.com
+                <Link href="mailto:thecricketproject.hn@gmail.com">
+                  thecricketproject.hn@gmail.com
+                </Link>
               </li>
             </ul>
             <div className="flex gap-4 mt-5">

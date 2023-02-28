@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     screens: {
       // https://tailwindcss.com/docs/screens
-      sm: '480px', // 640px
-      md: '760px',
+      sm: '600px',
+      md: '768px',
       lg: '1024px',
       xl: '1280px',
     },

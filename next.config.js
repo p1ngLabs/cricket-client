@@ -24,6 +24,11 @@ const nextConfig = {
         hostname: 'robohash.org',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'swiperjs.com',
+        pathname: '/demos/images/**',
+      },
     ],
   },
 };

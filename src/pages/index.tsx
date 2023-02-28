@@ -7,9 +7,9 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import banner1 from 'public/images/banner1.png';
 import banner2 from 'public/images/banner2.png';
-import { BookCard, SectionTitle } from '@components/index';
+import { BookSection } from '@components/index';
 import Book from '@interfaces/Book';
-import knex from 'database/db';
+import knex from '@database/db';
 
 // https://stackoverflow.com/questions/70986963/property-does-not-exist-on-type-even-though-type-is-declared-when-typing-nextpag
 interface HomeProps {
@@ -30,7 +30,7 @@ const Home: NextPage<HomeProps> = ({
         slidesPerView={1}
         autoplay={{ delay: 3000 }}
         loop={true}
-        className="mb-16 max-h-[60vh] max-w-full"
+        className="mb-24"
       >
         <SwiperSlide>
           <Image src={banner1} alt="banner" priority />
@@ -40,28 +40,9 @@ const Home: NextPage<HomeProps> = ({
         </SwiperSlide>
       </Swiper>
 
-      {/* TODO: abstract book section code into another component: BookCard and SectionTitle might not exist anymore */}
-      {newReleases.length > 0 && (
-        <>
-          <SectionTitle title="Best sellers" />
-          <section className="flex lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
-            {newReleases.map((book) => (
-              <BookCard key={book.isbn} book={book} />
-            ))}
-          </section>
-        </>
-      )}
+      {newReleases.length > 0 && <BookSection title="Best sellers" books={newReleases} />}
 
-      {allBooks.length > 0 && (
-        <>
-          <SectionTitle title="All books" />
-          <section className="flex lg:flex-wrap lg:justify-center gap-4 mx-4 mb-16 pb-2 overflow-auto">
-            {allBooks.map((book) => (
-              <BookCard key={book.isbn} book={book} />
-            ))}
-          </section>
-        </>
-      )}
+      {allBooks.length > 0 && <BookSection title="All books" books={allBooks} />}
 
       {/* TODO: add 'OUR ACTIVITY' section to display instagram posts and another section 'OUR BLOG' to showcase the blog (extended feature) */}
     </Layout>
