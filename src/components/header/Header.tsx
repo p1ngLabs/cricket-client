@@ -6,7 +6,7 @@ import cricketLogo from 'public/images/logo-white-transparent.png';
 
 const Header = () => {
   return (
-    <header id="header" className="bg-cricket_dark text-sm py-2">
+    <header id="header" className="fixed w-full bg-cricket_dark text-sm py-2 z-10">
       <div className="flex items-center sm:w-5/6 mx-auto">
         <nav className="flex items-center mr-auto">
           <Link href="/" className="w-16 mr-2 pl-4 sm:pl-0">

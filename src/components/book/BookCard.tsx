@@ -6,7 +6,10 @@ const BookCard = (props: { book: Book }) => {
   const { book } = props;
 
   return (
-    <article key={book.isbn} className="card min-w-[13rem] md:w-[18%] bg-base-100 hover:shadow-lg">
+    <article
+      key={book.isbn}
+      className="card min-w-[13rem] md:w-[18%] bg-base-100 hover:border hover:border-blue-500"
+    >
       <figure className="relative px-4 pt-4">
         <Link href={`/books/${book.id}`}>
           <Image

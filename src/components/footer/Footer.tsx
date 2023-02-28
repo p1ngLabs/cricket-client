@@ -12,15 +12,15 @@ const Footer = () => {
     <footer id="footer" className="bg-cricket_gray">
       {router.pathname === '/' && (
         <>
-          <div className="container mx-auto w-11/12 sm:w-full">
+          <div className="container mx-auto">
             <Newsletter />
           </div>
           <div className="divider my-0 h-0" />
         </>
       )}
 
-      <div className="container mx-auto w-11/12 sm:w-full">
-        <div className="flex flex-col md:flex-row md:justify-between items-start py-10 md:min-h-60">
+      <div className="container mx-auto px-4 md:px-0">
+        <div className="flex flex-col md:flex-row md:justify-between items-start py-10">
           <div className="footer-left">
             <h1 className="font-bold text-2xl mb-3">
               {process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}
@@ -54,16 +54,14 @@ const Footer = () => {
               <Link
                 href="https://www.facebook.com/thecricketproject.hn"
                 target="_blank"
-                className="text-xl opacity-100"
-                title="Facebook"
+                className="text-2xl opacity-100 hover:text-blue-500"
               >
                 <BsFacebook />
               </Link>
               <Link
                 href="https://www.instagram.com/cricketproject__/"
                 target="_blank"
-                className="text-xl opacity-100"
-                title="Instagram"
+                className="text-2xl opacity-100 hover:text-blue-500"
               >
                 <BsInstagram />
               </Link>

@@ -5,7 +5,7 @@ const Breadcrumbs = (props: { currentPage: string | string[] | undefined }) => {
   const { currentPage } = props;
 
   return (
-    <div className="text-sm breadcrumbs mt-4">
+    <div className="text-sm breadcrumbs mt-6">
       <ul>
         <li className="text-blue-500">
           <Link href="/">Home</Link>
