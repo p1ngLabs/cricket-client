@@ -5,8 +5,8 @@ import { Montserrat } from '@next/font/google';
 
 const font = Montserrat({ weight: ['400', '600', '800', '900'], subsets: ['latin', 'vietnamese'] });
 
-const Layout = (props: { children: ReactNode }) => {
-  const { children } = props;
+const Layout = (props: { isHomepage?: boolean; children: ReactNode }) => {
+  const { isHomepage, children } = props;
 
   return (
     <>
@@ -18,7 +18,9 @@ const Layout = (props: { children: ReactNode }) => {
 
       <div className={`flex flex-col min-h-screen w-full ${font.className}`}>
         <Header />
-        <main className="flex-1 container mx-auto text-sm">{children}</main>
+        <main className={`flex-1 ${isHomepage || 'container mx-auto'} pt-16 text-sm`}>
+          {children}
+        </main>
         <Footer />
       </div>
     </>

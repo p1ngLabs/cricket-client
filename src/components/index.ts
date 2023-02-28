@@ -13,6 +13,7 @@ import PageTitle from './title/PageTitle';
 import TablePagination from './table/TablePagination';
 import CustomerDrawer from './drawer/CustomerDrawer';
 import BookCard from './book/BookCard';
+import Breadcrumbs from './breadcrumbs/Breadcrumbs';
 import BookSection from './section/BookSection';
 
 export {
@@ -31,5 +32,6 @@ export {
   TablePagination,
   CustomerDrawer,
   BookCard,
+  Breadcrumbs,
   BookSection,
 };
