@@ -15,6 +15,7 @@ import CustomerDrawer from './drawer/CustomerDrawer';
 import BookCard from './book/BookCard';
 import Breadcrumbs from './breadcrumbs/Breadcrumbs';
 import BookSection from './section/BookSection';
+import AuthModal from './modal/AuthModal';
 
 export {
   HeaderAdmin,
@@ -34,4 +35,5 @@ export {
   BookCard,
   Breadcrumbs,
   BookSection,
+  AuthModal,
 };

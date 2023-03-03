@@ -24,8 +24,10 @@ const Header = () => {
             <li className="hidden md:flex items-center text-2xl cursor-pointer">
               <FiShoppingCart />
             </li>
-            <li className="hidden md:flex items-center text-2xl cursor-pointer">
-              <FiUser />
+            <li className="hidden md:flex items-center text-2xl">
+              <label htmlFor="my-modal" className="cursor-pointer">
+                <FiUser />
+              </label>
             </li>
             <li className="flex items-center md:hidden">
               <HamburgerMenu />

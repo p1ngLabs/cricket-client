@@ -17,7 +17,10 @@ module.exports = {
     extend: {
       colors: {
         cricket_dark: '#282828',
-        cricket_gray: '#f4f4f4',
+        cricket_gray: '#F4F4F4',
+        facebook: '#4267B2',
+        google: '#DB4437',
+        discord: '#5865F2',
       },
     },
   },
