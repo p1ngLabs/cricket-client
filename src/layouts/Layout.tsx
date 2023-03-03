@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { Header, Footer } from '@components/index';
+import { Header, Footer, LoginModal } from '@components/index';
 import { Montserrat } from '@next/font/google';
 
 const font = Montserrat({ weight: ['400', '600', '800', '900'], subsets: ['latin', 'vietnamese'] });
@@ -23,6 +23,8 @@ const Layout = (props: { isHomepage?: boolean; children: ReactNode }) => {
         </main>
         <Footer />
       </div>
+
+      <LoginModal />
     </>
   );
 };
