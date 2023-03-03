@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import { FaFacebookF, FaGoogle, FaDiscord } from 'react-icons/fa';
 
-const LoginModal = () => {
+const AuthModal = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(true);
+
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
@@ -10,8 +13,32 @@ const LoginModal = () => {
           <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
           </label>
-          <h3 className="text-3xl text-center font-bold">Log In</h3>
+          <h3 className="text-3xl text-center capitalize font-bold">
+            {isLogin ? 'Log in' : 'Sign up'}
+          </h3>
           <form>
+            {isLogin || (
+              <>
+                <div className="form-control">
+                  <label className="label label-text">First Name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    placeholder="First name"
+                    className="input input-bordered w-full"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label label-text">Last Name</label>
+                  <input
+                    type="text"
+                    name="lname"
+                    placeholder="Last name"
+                    className="input input-bordered w-full"
+                  />
+                </div>
+              </>
+            )}
             <div className="form-control">
               <label className="label label-text">Email</label>
               <input
@@ -37,7 +64,7 @@ const LoginModal = () => {
               Forgot password
             </Link>
             <button type="button" className="btn w-full mt-4">
-              Log In
+              {isLogin ? 'Log In' : 'Submit'}
             </button>
 
             <div className="divider">OR</div>
@@ -59,8 +86,12 @@ const LoginModal = () => {
 
             <p className="text-center">
               No account?{' '}
-              <Link href="#" className="font-bold hover:text-blue-500">
-                Sign Up
+              <Link
+                href="#"
+                className="font-bold hover:text-blue-500"
+                onClick={() => setIsLogin(!isLogin)}
+              >
+                {isLogin ? 'Sign Up' : 'Log In'}
               </Link>
             </p>
           </form>
@@ -70,4 +101,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default AuthModal;
