@@ -70,15 +70,27 @@ const AuthModal = () => {
             <div className="divider">OR</div>
 
             <div className="btn-group w-full mb-4">
-              <Link href="#" type="button" className="btn bg-facebook border-0 flex-1 py-2 gap-1">
+              <Link
+                href="#"
+                type="button"
+                className="btn no-animation bg-facebook border-0 flex-1 py-2 gap-1"
+              >
                 <FaFacebookF />
                 Facebook
               </Link>
-              <Link href="#" type="button" className="btn bg-google border-0 flex-1 py-2 gap-1">
+              <Link
+                href="#"
+                type="button"
+                className="btn no-animation bg-google border-0 flex-1 py-2 gap-1"
+              >
                 <FaGoogle />
                 Google
               </Link>
-              <Link href="#" type="button" className="btn bg-discord border-0 flex-1 py-2 gap-1">
+              <Link
+                href="#"
+                type="button"
+                className="btn no-animation bg-discord border-0 flex-1 py-2 gap-1"
+              >
                 <FaDiscord className="text-xl" />
                 Discord
               </Link>
