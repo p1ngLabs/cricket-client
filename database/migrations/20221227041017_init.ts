@@ -101,23 +101,25 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 export async function down(knex: Knex): Promise<void> {
-  await knex.schema.table('social_profiles', (table) => {
-    table.dropForeign('user_id');
-  });
-  await knex.schema.table('orders', (table) => {
-    table.dropForeign('user_id');
-  });
-  await knex.schema.table('books', (table) => {
-    table.dropForeign('category_id');
-    table.dropForeign('author_id');
-  });
-  await knex.schema.table('sale_books', (table) => {
-    table.dropForeign('book_id');
-  });
-  await knex.schema.table('orders_books', (table) => {
-    table.dropForeign('order_id');
-    table.dropForeign('book_id');
-  });
+  await Promise.all([
+    knex.schema.table('social_profiles', (table) => {
+      table.dropForeign('user_id');
+    }),
+    knex.schema.table('orders', (table) => {
+      table.dropForeign('user_id');
+    }),
+    knex.schema.table('books', (table) => {
+      table.dropForeign('category_id');
+      table.dropForeign('author_id');
+    }),
+    knex.schema.table('sale_books', (table) => {
+      table.dropForeign('book_id');
+    }),
+    knex.schema.table('orders_books', (table) => {
+      table.dropForeign('order_id');
+      table.dropForeign('book_id');
+    }),
+  ]);
   await knex.schema
     .dropTable('users')
     .dropTable('social_profiles')
