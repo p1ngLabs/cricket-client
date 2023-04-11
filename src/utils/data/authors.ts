@@ -1,6 +1,6 @@
-import Author from '@interfaces/Author';
+import AuthorInterface from '@interfaces/Author';
 
-const authors: Author[] = [
+const authors: AuthorInterface[] = [
   {
     id: 1,
     name: 'Livia Palleske',

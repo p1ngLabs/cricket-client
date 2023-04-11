@@ -1,4 +1,6 @@
-export default interface Book {
+type BookConditionType = 'new' | 'used';
+
+interface BookInterface {
   id: number;
   category_id: number;
   author_id: number;
@@ -10,7 +12,7 @@ export default interface Book {
   dimensions: string | null;
   language: string;
   isbn: string;
-  condition: 'new' | 'used';
+  condition: BookConditionType;
   price: number;
   current_stock: number;
   sold_copies: number;
@@ -19,3 +21,5 @@ export default interface Book {
   slug: string;
   active: boolean;
 }
+
+export default BookInterface;

@@ -1,4 +1,4 @@
-export default interface Order {
+interface OrdersInterface {
   id: number;
   user_id: number;
   payment_method: 'cash' | 'cards' | 'online transfer';
@@ -11,3 +11,5 @@ export default interface Order {
   grand_total: number;
   is_cart: boolean;
 }
+
+export default OrdersInterface;

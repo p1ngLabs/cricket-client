@@ -2,7 +2,7 @@ const handleSubmit = () => {
   console.log('search');
 };
 
-const Searchbar = () => {
+const SearchBar = () => {
   return (
     // TODO: search input slides left when click on search icon, display search icon only
     <form onSubmit={handleSubmit} className="search mr-3 hidden md:block w-full">
@@ -31,4 +31,4 @@ const Searchbar = () => {
   );
 };
 
-export default Searchbar;
+export default SearchBar;

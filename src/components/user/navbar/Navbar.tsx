@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-interface Navbar {
+interface NavbarInterface {
   title: string;
   url: string;
 }
 
-const navbarContents: Navbar[] = [
+const navbarContents: NavbarInterface[] = [
   {
     title: 'Home',
     url: '/',
@@ -30,7 +30,7 @@ const Navbar = () => {
       {navbarContents.map((item) => (
         <li key={item.title} className="font-bold text-white hover:text-gray-300">
           <Link href={item.url} className="px-4 py-2">
-            {item.title.toUpperCase()}
+            {item.title.toLocaleUpperCase()}
           </Link>
         </li>
       ))}

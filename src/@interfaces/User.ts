@@ -1,4 +1,4 @@
-export default interface User {
+interface UserInterface {
   id: number;
   first_name: string;
   last_name: string;
@@ -11,3 +11,5 @@ export default interface User {
   role: 'admin' | 'customer';
   active: boolean;
 }
+
+export default UserInterface;

@@ -1,6 +1,8 @@
-export default interface Author {
+interface AuthorInterface {
   id: number;
   name: string;
   description: string;
   slug: string;
 }
+
+export default AuthorInterface;

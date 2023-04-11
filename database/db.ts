@@ -1,6 +1,9 @@
 import knex from 'knex';
 import config from '../config/config';
+import { Model } from 'objection';
 
-const myKnex = knex(config.db);
+const knexInstance = knex(config.db);
 
-export default myKnex;
+Model.knex(knexInstance);
+
+export default knexInstance;

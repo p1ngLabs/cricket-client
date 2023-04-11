@@ -1,6 +1,6 @@
-import Order from '@interfaces/Order';
+import OrdersInterface from '@interfaces/Order';
 
-const orders: Order[] = [
+const orders: OrdersInterface[] = [
   {
     id: 1,
     user_id: 1,

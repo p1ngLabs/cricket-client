@@ -4,13 +4,13 @@ import { FaListUl, FaUsers } from 'react-icons/fa';
 import { BsCartCheckFill, BsGearFill } from 'react-icons/bs';
 import { IconType } from 'react-icons/lib';
 
-export interface Sidebar {
+export interface SidebarInterface {
   title: string;
   icon: IconType;
   url: string;
 }
 
-const sidebarContents: Sidebar[] = [
+const sidebarContents: SidebarInterface[] = [
   {
     title: 'Tổng quan',
     icon: MdDashboard,

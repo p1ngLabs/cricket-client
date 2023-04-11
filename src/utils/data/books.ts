@@ -1,6 +1,6 @@
-import Book from '@interfaces/Book';
+import BookInterface from '@interfaces/Book';
 
-const books: Book[] = [
+const books: BookInterface[] = [
   {
     id: 1,
     category_id: 8,

@@ -1,12 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import knex from '@database/db';
-import Customer from '@interfaces/Customer';
+import { getCustomers } from '@services/userServices';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const customers = await knex<Partial<Customer>[]>('users')
-    .select('*')
-    .where('role', 'customer')
-    .select('id', 'username', 'email', 'avatar');
+  const customers = await getCustomers();
 
   res.status(200).json(customers);
 };

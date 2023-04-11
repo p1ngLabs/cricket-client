@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between items-start py-10">
           <div className="footer-left">
             <h1 className="font-bold text-2xl mb-3">
-              {process.env.NEXT_PUBLIC_APP_NAME?.toUpperCase()}
+              {process.env.NEXT_PUBLIC_APP_NAME?.toLocaleUpperCase()}
             </h1>
             <p className="max-w-sm text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod consectetur blanditiis

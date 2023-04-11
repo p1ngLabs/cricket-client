@@ -1,5 +1,5 @@
 import Book from '@interfaces/Book';
-import { BookCard } from '..';
+import { BookCard } from '../..';
 
 export interface SectionInterface {
   title: string;

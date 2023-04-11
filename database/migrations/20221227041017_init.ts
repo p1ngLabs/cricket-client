@@ -4,8 +4,8 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema
     .createTable('users', (table) => {
       table.increments().primary({ constraintName: 'users.primary_key' });
-      table.string('first_name', 50);
-      table.string('last_name', 50);
+      table.string('firstName', 50);
+      table.string('lastName', 50);
       table.string('username').notNullable().index();
       table.string('email').unique().notNullable().index();
       table.string('password');

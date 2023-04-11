@@ -1,6 +1,6 @@
-import SocialProfile from '@interfaces/SocialProfile';
+import SocialProfileInterface from '@interfaces/SocialProfile';
 
-const profiles: SocialProfile[] = [
+const profiles: SocialProfileInterface[] = [
   {
     id: 1,
     user_id: 1,

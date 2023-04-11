@@ -1,6 +1,6 @@
-import Category from '@interfaces/Category';
+import CategoryInterface from '@interfaces/Category';
 
-const categories: Category[] = [
+const categories: CategoryInterface[] = [
   {
     id: 1,
     parent_id: 2,

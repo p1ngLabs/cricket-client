@@ -17,11 +17,11 @@ import {
   TablePagination,
   CustomerDrawer,
 } from '@components/index';
-import Customer from '@interfaces/Customer';
+import CustomerInterface from '@interfaces/Customer';
 import sidebarContents from '@interfaces/SidebarAdmin';
 import DrawerContext from 'src/contexts/DrawerContext';
 
-const columnHelper = createColumnHelper<Customer>();
+const columnHelper = createColumnHelper<CustomerInterface>();
 const columns = [
   columnHelper.accessor('id', {
     header: '#',
@@ -46,7 +46,7 @@ const columns = [
 ];
 
 const CustomerPage: NextPage = () => {
-  const [data, setData] = useState<Customer[]>([]);
+  const [data, setData] = useState<CustomerInterface[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const { toggleDrawer } = useContext(DrawerContext);
   const router = useRouter();
@@ -64,8 +64,8 @@ const CustomerPage: NextPage = () => {
     const fetchUsers = async () => {
       try {
         const res = await fetch('/api/customers');
-        const users = await res.json();
-        setData(users);
+        const customers = await res.json();
+        setData(customers);
         setLoading(false);
       } catch (err) {
         console.error(err);

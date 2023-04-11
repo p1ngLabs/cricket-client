@@ -1,6 +1,6 @@
-import User from '@interfaces/User';
+import UserInterface from '@interfaces/User';
 
-const users: User[] = [
+const users: UserInterface[] = [
   {
     id: 1,
     first_name: 'phuc',

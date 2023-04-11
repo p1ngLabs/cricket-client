@@ -20,11 +20,13 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@interfaces/*": ["src/interfaces/*"],
+      "@interfaces/*": ["src/@interfaces/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@database/*": ["database/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@models/*": ["src/models/*"],
+      "@services/*": ["src/services/*"],
       "@utils/*": ["src/utils/*"],
     }
   },

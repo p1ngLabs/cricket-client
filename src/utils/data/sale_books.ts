@@ -1,6 +1,6 @@
-import SaleBook from '@interfaces/SaleBook';
+import SaleBookInterface from '@interfaces/SaleBook';
 
-const sale_books: SaleBook[] = [
+const sale_books: SaleBookInterface[] = [
   {
     id: 1,
     book_id: 1,
