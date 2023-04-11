@@ -8,7 +8,7 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import Layout from '@layouts/LayoutAdmin';
+import Layout from '@components/shared/layouts/LayoutAdmin';
 import {
   Loader,
   PageTitle,

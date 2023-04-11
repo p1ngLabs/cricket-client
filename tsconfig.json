@@ -22,7 +22,7 @@
     "paths": {
       "@interfaces/*": ["src/@interfaces/*"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
+      "@layouts/*": ["src/components/shared/layouts/*"],
       "@database/*": ["database/*"],
       "@hooks/*": ["src/hooks/*"],
       "@models/*": ["src/models/*"],

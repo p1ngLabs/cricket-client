@@ -2,7 +2,7 @@ import type { GetStaticProps, GetStaticPaths, InferGetStaticPropsType, NextPage 
 import Image from 'next/image';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Layout from '@layouts/Layout';
+import Layout from '@components/shared/layouts/Layout';
 import { Breadcrumbs } from '@components/index';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 import Book from '@interfaces/Book';

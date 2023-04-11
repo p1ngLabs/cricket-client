@@ -1,5 +1,5 @@
 import { NextPage } from 'next/types';
-import Layout from '@layouts/Layout';
+import Layout from '@components/shared/layouts/Layout';
 
 const ContactPage: NextPage = () => {
   return (

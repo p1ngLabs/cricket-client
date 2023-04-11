@@ -1,5 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next/types';
-import Layout from '@layouts/Layout';
+import Layout from '@components/shared/layouts/Layout';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import banner from 'public/images/banner.jpg';
