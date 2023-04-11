@@ -20,7 +20,7 @@ module.exports = {
         cricket_gray: '#F4F4F4',
         facebook: '#4267B2',
         google: '#DB4437',
-        discord: '#5865F2',
+        // discord: '#5865F2',
       },
     },
   },

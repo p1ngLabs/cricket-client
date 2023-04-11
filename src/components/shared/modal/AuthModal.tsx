@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaFacebookF, FaGoogle, FaDiscord } from 'react-icons/fa';
+import { FaFacebookF, FaGoogle } from 'react-icons/fa';
 
 const AuthModal = () => {
   const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -85,14 +85,6 @@ const AuthModal = () => {
               >
                 <FaGoogle />
                 Google
-              </Link>
-              <Link
-                href="#"
-                type="button"
-                className="btn no-animation bg-discord border-0 flex-1 py-2 gap-1"
-              >
-                <FaDiscord className="text-xl" />
-                Discord
               </Link>
             </div>
 

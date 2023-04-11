@@ -14,12 +14,12 @@ A local library and bookstore in Hanoi
 
 ## Setting up development environment
 
-* Clone the project then install dependencies using `yarn`
+* Clone the project then install dependencies using `npm`
 
   ```sh
   cd cricket-project
 
-  yarn
+  npm install
   ```
 
 * Copy the `.env.example` file into `.env` file then update the values accordingly
@@ -32,8 +32,6 @@ A local library and bookstore in Hanoi
 
   * Google client id and secret can be acquired [here](https://console.developers.google.com/apis/credentials)
 
-  * Discord client id and secret can be acquired [here](https://discord.com/developers/applications)
-
 * If using [Docker](https://www.docker.com/), set up mock database with the following commands from this directory:
 
   * Install [Knex](https://knexjs.org/) migrations CLI globally, run `npm install knex -g`
@@ -43,9 +41,9 @@ A local library and bookstore in Hanoi
   * Migrate tables and seed your database, run
 
   ```sh
-  yarn migrate:latest
+  npm run migrate:latest
 
-  yarn seed:run
+  npm run seed:run
   ```
 
-* Run `yarn dev` in another terminal tab, app should now be running on port 3000
+* Run `npm run dev` in another terminal tab, app should now be running on port 3000

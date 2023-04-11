@@ -670,7 +670,7 @@ export async function seed(knex: Knex): Promise<void> {
     {
       id: 1,
       user_id: 1,
-      provider: 'discord',
+      provider: 'facebook',
       username: 'PN',
       image: 'https://cdn.discordapp.com/embed/avatars/4.png',
     },
