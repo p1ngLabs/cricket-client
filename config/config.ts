@@ -1,27 +1,7 @@
-import SocialProviders from '@interfaces/SocialProviders';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-export interface Config {
-  db: {
-    client: string;
-    connection: {
-      host: string;
-      user: string;
-      password: string;
-      database: string;
-      port: number;
-    };
-  };
-  oauth: {
-    [key in SocialProviders]: {
-      clientId: string;
-      clientSecret: string;
-    };
-  };
-}
-
-const config: Config = {
+const config = {
   db: {
     client: 'pg',
     connection: {

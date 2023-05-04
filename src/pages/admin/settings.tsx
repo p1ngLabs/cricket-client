@@ -1,5 +1,5 @@
 import { NextPage } from 'next/types';
-import Layout from '@components/shared/layouts/LayoutAdmin';
+import Layout from '@/client/components/admin/Layout';
 
 const SettingsPage: NextPage = () => {
   return <Layout>settings...</Layout>;

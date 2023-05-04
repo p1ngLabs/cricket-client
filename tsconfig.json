@@ -20,23 +20,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@interfaces/*": ["src/@interfaces/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/components/shared/layouts/*"],
-      "@database/*": ["database/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@models/*": ["src/models/*"],
-      "@services/*": ["src/services/*"],
-      "@utils/*": ["src/utils/*"],
+      "@/types/*": ["src/@types/*"],
+      "@/client/*": ["src/client/*"],
+      "@/server/*": ["src/server/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "*.config.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "*.js"],
+  "exclude": ["node_modules"]
 }

@@ -1,11 +1,10 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next/types';
-import Layout from '@components/shared/layouts/Layout';
+import Layout from '@/client/components/user/Layout';
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import banner from 'public/images/banner.jpg';
-import { BookSection } from '@components/index';
-import Book from '@interfaces/Book';
-import knex from '@database/db';
+import { BookSection } from 'src/client/components/index';
+import type Book from '@/types/schemas/book.schema';
+import knex from '../../database/index';
 
 // https://stackoverflow.com/questions/70986963/property-does-not-exist-on-type-even-though-type-is-declared-when-typing-nextpag
 interface HomeProps {
@@ -19,24 +18,7 @@ const Home: NextPage<HomeProps> = ({
   allBooks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Layout isHomepage>
-      <div
-        className="hero min-h-[80vh] mb-24 bg-cover bg-center"
-        style={{ backgroundImage: `url(${banner.src})` }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Welcome</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-              exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
-        </div>
-      </div>
-
+    <Layout>
       {newReleases.length > 0 && <BookSection title="Best sellers" books={newReleases} />}
 
       {allBooks.length > 0 && <BookSection title="All books" books={allBooks} />}
