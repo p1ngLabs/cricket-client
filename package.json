@@ -1,5 +1,5 @@
 {
-  "name": "cricket-project",
+  "name": "cricket",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,10 +17,12 @@
     "seed:run": "knex seed:run"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
+    "@mantine/next": "^6.0.10",
     "@tanstack/react-table": "^8.7.6",
-    "@types/react": "18.0.24",
-    "@types/react-dom": "18.0.8",
-    "daisyui": "^2.46.1",
     "dotenv": "^16.0.3",
     "knex": "^2.3.0",
     "next": "^13.1.1",
@@ -29,10 +31,7 @@
     "pg": "^8.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.41.5",
     "react-icons": "^4.6.0",
-    "react-modern-drawer": "^1.2.0",
-    "react-spinners": "^0.13.7",
     "slugify": "^1.6.5",
     "swiper": "^9.0.0",
     "typescript": "^4.9.3",
@@ -42,24 +41,21 @@
     "@next/eslint-plugin-next": "^13.0.1",
     "@types/node": "^18.11.9",
     "@types/pg": "^8.6.5",
+    "@types/react": "^18.0.38",
+    "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "autoprefixer": "^10.4.13",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "husky": "^8.0.3",
     "lint-staged": "^13.0.3",
-    "postcss": "^8.4.18",
     "prettier": "^2.7.1",
-    "tailwindcss": "^3.2.1",
     "ts-node": "^10.9.1"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint",
-      "prettier --write --ignore-unknown"
-    ]
+    "**/*.{js,jsx,ts,tsx}": "eslint --quiet --fix",
+    "**/*.{md,html,css,cjs,js,jsx,ts,tsx}": "prettier --write"
   }
 }

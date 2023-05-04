@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Layout from '@components/shared/layouts/LayoutAdmin';
+import Layout from '@/client/components/admin/Layout';
 
 const Book: NextPage = () => {
   return <Layout>books...</Layout>;

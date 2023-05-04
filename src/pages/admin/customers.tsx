@@ -1,6 +1,6 @@
 import { NextPage } from 'next/types';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   flexRender,
   createColumnHelper,
@@ -8,20 +8,18 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import Layout from '@components/shared/layouts/LayoutAdmin';
+import Layout from '@/client/components/admin/Layout';
 import {
   Loader,
   PageTitle,
   RowImageAdmin,
   RowActions,
   TablePagination,
-  CustomerDrawer,
-} from '@components/index';
-import CustomerInterface from '@interfaces/Customer';
-import sidebarContents from '@interfaces/SidebarAdmin';
-import DrawerContext from 'src/contexts/DrawerContext';
+} from 'src/client/components/index';
+import ICustomer from '@/types/schemas/customer.schema';
+import sidebarContents from '@/types/schemas/SidebarAdmin';
 
-const columnHelper = createColumnHelper<CustomerInterface>();
+const columnHelper = createColumnHelper<ICustomer>();
 const columns = [
   columnHelper.accessor('id', {
     header: '#',
@@ -46,9 +44,8 @@ const columns = [
 ];
 
 const CustomerPage: NextPage = () => {
-  const [data, setData] = useState<CustomerInterface[]>([]);
+  const [data, setData] = useState<ICustomer[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const { toggleDrawer } = useContext(DrawerContext);
   const router = useRouter();
   const pageTitle = sidebarContents.find((item) => item.url === router.pathname)?.title;
 
@@ -79,7 +76,6 @@ const CustomerPage: NextPage = () => {
     <>
       <Layout>
         <PageTitle title={pageTitle} />
-        <CustomerDrawer />
 
         {/* Action bar */}
         <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md custom-box-shadow">
@@ -90,7 +86,7 @@ const CustomerPage: NextPage = () => {
             className="input input-bordered w-5/6 bg-gray-100 focus:outline-none bg-gray"
             placeholder="Search by username or email"
           />
-          <button type="button" className="btn w-1/6 text-lg uppercase" onClick={toggleDrawer}>
+          <button type="button" className="btn w-1/6 text-lg uppercase">
             Thêm
           </button>
         </div>

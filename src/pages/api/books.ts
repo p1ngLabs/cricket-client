@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getBooks } from '@services/bookServices';
+import { getBooks } from '@/server/services/bookServices';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
