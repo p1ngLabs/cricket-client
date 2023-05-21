@@ -8,14 +8,8 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import Layout from '@/client/components/admin/Layout';
-import {
-  Loader,
-  PageTitle,
-  RowImageAdmin,
-  RowActions,
-  TablePagination,
-} from 'src/client/components/index';
+import Layout from '@/components/admin/Layout';
+import { Loader, PageTitle, RowImageAdmin, RowActions, TablePagination } from '@/components';
 import ICustomer from '@/types/schemas/customer.schema';
 import sidebarContents from '@/types/schemas/SidebarAdmin';
 

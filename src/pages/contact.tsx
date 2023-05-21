@@ -1,5 +1,5 @@
 import type { NextPage } from 'next/types';
-import Layout from '@/client/components/user/Layout';
+import Layout from '@/components/user/Layout';
 import { AspectRatio } from '@mantine/core';
 
 const ContactPage: NextPage = () => {

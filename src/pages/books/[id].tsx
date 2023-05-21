@@ -2,11 +2,10 @@ import type { GetStaticProps, GetStaticPaths, InferGetStaticPropsType, NextPage 
 import Image from 'next/image';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Layout from '@/client/components/user/Layout';
-import { Breadcrumbs } from 'src/client/components/index';
+import Layout from '@/components/user/Layout';
+import { Breadcrumbs } from '@/components';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 import IBook from '@/types/schemas/book.schema';
-import knex from '../../../database/index';
 import { BiMinus, BiPlus } from 'react-icons/bi';
 
 import 'swiper/css';
@@ -201,42 +200,42 @@ const BookDetails: NextPage<BookDetailsProps> = (
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const books = await knex<IBook[]>('books').select('id');
-  const paths = books.map((book) => ({
-    params: { id: String(book.id) },
-  }));
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const books = await knex<IBook[]>('books').select('id');
+//   const paths = books.map((book) => ({
+//     params: { id: String(book.id) },
+//   }));
 
-  return {
-    fallback: false,
-    paths,
-  };
-};
+//   return {
+//     fallback: false,
+//     paths,
+//   };
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const book = await knex<IBook>('books')
-    .select(
-      'id',
-      'author_id',
-      'title',
-      'description',
-      'publisher',
-      'price',
-      'current_stock',
-      'pages',
-      'dimensions',
-      'language',
-      'isbn',
-      'thumbnail'
-    )
-    .where('id', params?.id)
-    .first();
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const book = await knex<IBook>('books')
+//     .select(
+//       'id',
+//       'author_id',
+//       'title',
+//       'description',
+//       'publisher',
+//       'price',
+//       'current_stock',
+//       'pages',
+//       'dimensions',
+//       'language',
+//       'isbn',
+//       'thumbnail'
+//     )
+//     .where('id', params?.id)
+//     .first();
 
-  return {
-    props: {
-      book,
-    },
-  };
-};
+//   return {
+//     props: {
+//       book,
+//     },
+//   };
+// };
 
 export default BookDetails;

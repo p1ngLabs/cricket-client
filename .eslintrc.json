@@ -22,7 +22,7 @@
     "ecmaVersion": "latest",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [

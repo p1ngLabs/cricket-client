@@ -1,11 +1,12 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import theme from '@/client/utils/theme';
+import theme from '@/utils/theme';
+import { SessionProvider } from 'next-auth/react';
 import { MantineProvider } from '@mantine/core';
-import { DrawerProvider } from '@/client/contexts/DrawerContext';
+import { DrawerProvider } from '@/contexts/DrawerContext';
 
-const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
   return (
     <>
       <Head>
@@ -14,11 +15,13 @@ const App = ({ Component, pageProps: { ...pageProps } }: AppProps) => {
         <meta name="description" content="Thư viện cho bạn và cho tôi..." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-        <DrawerProvider>
-          <Component {...pageProps} />
-        </DrawerProvider>
-      </MantineProvider>
+      <SessionProvider session={session}>
+        <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+          <DrawerProvider>
+            <Component {...pageProps} />
+          </DrawerProvider>
+        </MantineProvider>
+      </SessionProvider>
     </>
   );
 };

@@ -5,17 +5,19 @@ import {
   Divider,
   Flex,
   Group,
+  Menu,
   Text,
   TextInput,
   createStyles,
 } from '@mantine/core';
-import { Navbar } from '@/client/components/index';
+import { Navbar } from '@/components';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Banner from './Banner';
 import cricketLogo from 'public/images/logo-white-transparent.png';
 import Link from 'next/link';
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from 'react-icons/bi';
+import { useSession, signOut } from 'next-auth/react';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -53,7 +55,13 @@ interface HeaderProps {
 
 const Header = ({ openModal }: HeaderProps) => {
   const { classes } = useStyles();
+  const { data: session } = useSession();
   const router = useRouter();
+
+  const handleLogout = () => {
+    console.log('log out');
+    signOut();
+  };
 
   return (
     <>
@@ -73,12 +81,25 @@ const Header = ({ openModal }: HeaderProps) => {
               className={classes.search}
             />
             <Group>
-              <Flex onClick={openModal} align="center" className={classes.signin} c="white">
-                <Text span fz={30} display="flex">
-                  <BiUserCircle />
-                </Text>
-                <Text span>Sign in</Text>
-              </Flex>
+              {session ? (
+                <Menu position="bottom-start" shadow="md">
+                  <Menu.Target>{session.user?.name}</Menu.Target>
+
+                  <Menu.Dropdown>
+                    <Menu.Item>
+                      <Link href="/profile">{session.user?.name}</Link>
+                    </Menu.Item>
+                    <Menu.Item onClick={handleLogout}>Log out</Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
+              ) : (
+                <Flex onClick={openModal} align="center" className={classes.signin} c="white">
+                  <Text span fz={30} display="flex">
+                    <BiUserCircle />
+                  </Text>
+                  <Text span>Sign in</Text>
+                </Flex>
+              )}
               <Divider size="sm" orientation="vertical" />
               <Text component={Link} href="#" c="white" fz={30} display="flex">
                 <BiCartAlt />

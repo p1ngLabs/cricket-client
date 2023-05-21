@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import { HeaderAdmin, SidebarAdmin } from 'src/client/components/index';
+import { HeaderAdmin, SidebarAdmin } from '@/components';
 
 const Layout = (props: { children?: ReactNode }) => {
   const { children } = props;

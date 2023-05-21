@@ -14,7 +14,6 @@ import {
   Group,
   useMantineTheme,
 } from '@mantine/core';
-import Link from 'next/link';
 import { FormEvent, useState } from 'react';
 import { FaFacebookF, FaGoogle } from 'react-icons/fa';
 
@@ -50,6 +49,14 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Submitted');
+  };
+
+  const handleGoogleLogin = () => {
+    console.log('googleeee');
+  };
+
+  const handleFacebookLogin = () => {
+    console.log('facebookkkk');
   };
 
   return (
@@ -96,9 +103,7 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
             <Space h={16} />
           </>
         )}
-
         <TextInput type="email" placeholder="Email" label="Email" size="md" withAsterisk required />
-
         {authMode === 'forgot' || (
           <>
             <Space h={16} />
@@ -111,7 +116,6 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
             />
           </>
         )}
-
         {authMode === 'register' && (
           <>
             <Space h={16} />
@@ -124,7 +128,6 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
             />
           </>
         )}
-
         <UnstyledButton
           my={16}
           fz="sm"
@@ -133,55 +136,47 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
         >
           Forgot password?
         </UnstyledButton>
-
         <Button type="submit" w="100%" color="dark" size="md">
           Submit
         </Button>
-
-        <Divider
-          my="sm"
-          label="OR"
-          labelPosition="center"
-          styles={{ label: { fontSize: '16px' } }}
-        />
-
-        <Flex justify="space-between" gap="sm">
-          <Button
-            component={Link}
-            href="#"
-            leftIcon={<FaFacebookF />}
-            color="indigo"
-            className={classes.oauthButton}
-          >
-            Sign In with Facebook
-          </Button>
-          <Button
-            component={Link}
-            href="#"
-            leftIcon={<FaGoogle />}
-            color="red"
-            className={classes.oauthButton}
-          >
-            Sign In with Google
-          </Button>
-        </Flex>
-
-        <Center fz="sm" mt={8}>
-          <Text c="gray" span>
-            {authMode === 'register' ? 'Already have account?' : 'No account yet?'}
-          </Text>
-          <UnstyledButton
-            fz="sm"
-            ml={6}
-            onClick={
-              authMode === 'register' ? () => setAuthMode('login') : () => setAuthMode('register')
-            }
-            className={classes.removeUnderlineOnHover}
-          >
-            {authMode === 'register' ? 'Sign In' : 'Create an Account'}
-          </UnstyledButton>
-        </Center>
       </form>
+
+      <Divider my="sm" label="OR" labelPosition="center" styles={{ label: { fontSize: '16px' } }} />
+
+      <Flex justify="space-between" gap="sm">
+        <Button
+          leftIcon={<FaFacebookF />}
+          color="indigo"
+          className={classes.oauthButton}
+          onClick={handleFacebookLogin}
+        >
+          Sign In with Facebook
+        </Button>
+        <Button
+          leftIcon={<FaGoogle />}
+          color="red"
+          className={classes.oauthButton}
+          onClick={handleGoogleLogin}
+        >
+          Sign In with Google
+        </Button>
+      </Flex>
+
+      <Center fz="sm" mt={8}>
+        <Text c="gray" span>
+          {authMode === 'register' ? 'Already have account?' : 'No account yet?'}
+        </Text>
+        <UnstyledButton
+          fz="sm"
+          ml={6}
+          onClick={
+            authMode === 'register' ? () => setAuthMode('login') : () => setAuthMode('register')
+          }
+          className={classes.removeUnderlineOnHover}
+        >
+          {authMode === 'register' ? 'Sign In' : 'Create an Account'}
+        </UnstyledButton>
+      </Center>
     </Modal>
   );
 };
