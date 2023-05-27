@@ -1,16 +1,5 @@
 import Link from 'next/link';
-import {
-  AspectRatio,
-  Box,
-  Center,
-  Container,
-  Flex,
-  List,
-  Space,
-  Text,
-  Tooltip,
-  createStyles,
-} from '@mantine/core';
+import { Box, Container, Flex, List, Space, Text, Tooltip, createStyles } from '@mantine/core';
 import { HiOutlineLocationMarker, HiPhone, HiOutlineMail } from 'react-icons/hi';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import Image from 'next/image';

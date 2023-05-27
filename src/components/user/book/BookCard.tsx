@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Book from '@/types/schemas/book.schema';
-import { AspectRatio, Button, Card, Stack, Text, createStyles } from '@mantine/core';
+import { AspectRatio, Button, Card, Stack, Text, Tooltip, createStyles } from '@mantine/core';
 
 interface BookCardProps {
   book: Book;
@@ -46,11 +46,12 @@ const BookCard = ({ book }: BookCardProps) => {
           {book.price.toLocaleString('en-US')} VND
         </Text>
         <Link href={`/books/${book.id}`}>
-          <Text size="md" weight={500}>
+          <Text size="md" weight={500} lineClamp={2}>
             {book.title}
           </Text>
         </Link>
         <Text color="dimmed" size="xs" mb={8}>
+          {/* TODO: Change to author name */}
           {book.publisher}
         </Text>
       </Stack>

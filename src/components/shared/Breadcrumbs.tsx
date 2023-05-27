@@ -1,22 +1,22 @@
+import { Breadcrumbs, Text } from '@mantine/core';
 import Link from 'next/link';
-import { memo } from 'react';
 
-const Breadcrumbs = (props: { currentPage: string | string[] | undefined }) => {
-  const { currentPage } = props;
+interface BreadcrumbsProps {
+  currentPage: string | string[] | undefined;
+}
 
-  return (
-    <div className="text-sm breadcrumbs mt-6">
-      <ul>
-        <li className="text-blue-500">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="text-blue-500">
-          <Link href="#">Category</Link>
-        </li>
-        <li className="opacity-80">{currentPage}</li>
-      </ul>
-    </div>
-  );
+const MyBreadcrumbs = ({ currentPage }: BreadcrumbsProps) => {
+  const items = [
+    { title: 'Home', href: '/' },
+    { title: 'Category', href: '/' },
+    { title: currentPage, href: '#' },
+  ].map((item, index) => (
+    <Text key={index} component={Link} href={item.href}>
+      {item.title}
+    </Text>
+  ));
+
+  return <Breadcrumbs mb={16}>{items}</Breadcrumbs>;
 };
 
-export default memo(Breadcrumbs);
+export default MyBreadcrumbs;

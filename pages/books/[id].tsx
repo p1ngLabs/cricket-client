@@ -1,4 +1,4 @@
-import type { GetStaticProps, GetStaticPaths, InferGetStaticPropsType, NextPage } from 'next';
+import type { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,42 +6,54 @@ import Layout from '@/components/user/Layout';
 import { Breadcrumbs } from '@/components';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 import IBook from '@/types/schemas/book.schema';
-import { BiMinus, BiPlus } from 'react-icons/bi';
+import QuantityCounter from '@/components/shared/QuantityCounter';
+import config from '@/config';
+import { Badge, Box, Flex, Title, Text, createStyles, Button, Divider, List } from '@mantine/core';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-interface BookDetailsProps {
-  book: Partial<IBook>;
-}
+const useStyles = createStyles((theme) => ({
+  gallery: {
+    width: '50%',
+    height: 'fit-content',
+    [theme.fn.smallerThan('sm')]: {
+      width: '100%',
+    },
+  },
+  info: {
+    width: '50%',
+    paddingLeft: '2rem',
+    [theme.fn.smallerThan('sm')]: {
+      width: '100%',
+      paddingLeft: 0,
+      marginTop: '2rem',
+    },
+  },
+  swiper: {
+    height: '80%',
+    width: '100%',
+    marginBottom: '.5rem',
+  },
+}));
 
-const BookDetails: NextPage<BookDetailsProps> = (
-  props: InferGetStaticPropsType<typeof getStaticProps>
-) => {
-  const { book } = props;
+const BookDetails = ({ book }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { classes } = useStyles();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [quantity, setQuantity] = useState<number>(1);
-
-  const handleMinus = () => {
-    if (quantity === 1) return;
-    setQuantity(quantity - 1);
-  };
-
-  const handlePlus = () => {
-    setQuantity(quantity + 1);
-  };
 
   return (
     <Layout>
-      <div className="mx-4 md:mx-0">
+      <Box mt={60}>
         <Breadcrumbs currentPage={book.title} />
-        <div className="book-details my-4 flex flex-wrap">
-          <div className="gallery w-full mb-4 md:w-1/2">
+
+        <Flex justify="space-between" wrap="wrap">
+          <Box component="section" className={classes.gallery}>
             <Swiper
+              className={classes.swiper}
               style={{
-                '--swiper-navigation-color': '#fff',
+                '--swiper-navigation-color': '#ccc',
                 '--swiper-pagination-color': '#fff',
               }}
               loop={true}
@@ -50,7 +62,6 @@ const BookDetails: NextPage<BookDetailsProps> = (
               thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
               // https://github.com/nolimits4web/swiper/issues/5630
               modules={[FreeMode, Navigation, Thumbs]}
-              className="mySwiper2 mb-2"
             >
               <SwiperSlide>
                 <Image
@@ -136,106 +147,99 @@ const BookDetails: NextPage<BookDetailsProps> = (
                 />
               </SwiperSlide>
             </Swiper>
-          </div>
+          </Box>
 
-          <div className="info w-full mb-4 md:w-1/2 md:pl-8">
-            <h2 className="font-bold capitalize text-2xl flex items-center">
-              {book.title}{' '}
+          <Box component="section" className={classes.info}>
+            <Flex align="center">
+              <Title order={2}>{book.title}</Title>
               {!book.current_stock && (
-                <span className="badge badge-error text-white ml-2">Out of stock</span>
+                <Badge
+                  variant="gradient"
+                  gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
+                  ml=".5rem"
+                >
+                  Out of stock
+                </Badge>
               )}
-            </h2>
-            <p className="opacity-80">by {`author id: ${book.author_id}`}</p>
+            </Flex>
 
-            <div className="font-bold text-3xl my-4">
+            <Text color="dimmed" opacity={0.8}>
+              by {book.author}
+            </Text>
+
+            <Text fw="bold" fz="xl" my="md">
               {book.price.toLocaleString()}
-              <sup>đ</sup>
-            </div>
+              <sup>VND</sup>
+            </Text>
 
-            <div className="flex items-center gap-4">
-              <div className="btn-group border rounded-xl">
-                <button className="btn btn-ghost text-xl" onClick={handleMinus}>
-                  <BiMinus />
-                </button>
-                <input
-                  type="text"
-                  className="w-12 md:w-16 text-center font-bold text-xl focus:outline-none"
-                  inputMode="numeric"
-                  value={quantity}
-                  maxLength={3}
-                  step={1}
-                  disabled
-                />
-                <button className="btn btn-ghost text-xl" onClick={handlePlus}>
-                  <BiPlus />
-                </button>
-              </div>
-              <button type="button" className="btn btn-secondary w-full flex-shrink">
+            <Flex align="center" gap="md">
+              <QuantityCounter />
+
+              <Button variant="light" color="violet" size="lg">
                 Add to cart
-              </button>
-            </div>
+              </Button>
+            </Flex>
 
-            <div className="divider"></div>
+            <Divider my="md" />
 
-            <div className="mt-4">
-              <h3 className="font-bold text-xl">Description</h3>
-              <p className="text-justify">{book.description}</p>
-              <ul className="pt-4">
-                <li>
-                  <span className="font-bold opacity-60">Language:</span> {book.language}
-                </li>
-                <li>
-                  <span className="font-bold opacity-60">Pages:</span> {book.pages}
-                </li>
-                <li>
-                  <span className="font-bold opacity-60">Dimension:</span> {book.dimensions}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        {/* TODO: additional section for recommended books */}
-      </div>
+            <Box mt="md">
+              <Title order={3} fw="bold" fz="lg">
+                Description
+              </Title>
+              <Text component="p" align="justify">
+                {book.description}
+              </Text>
+              <List>
+                <List.Item>
+                  <Text span fw="bold" opacity={0.6}>
+                    Language:
+                  </Text>{' '}
+                  {book.language}
+                </List.Item>
+                <List.Item>
+                  <Text span fw="bold" opacity={0.6}>
+                    Pages:
+                  </Text>{' '}
+                  {book.pages}
+                </List.Item>
+                <List.Item>
+                  <Text span fw="bold" opacity={0.6}>
+                    Dimensions:
+                  </Text>{' '}
+                  {book.dimensions}
+                </List.Item>
+              </List>
+            </Box>
+          </Box>
+        </Flex>
+      </Box>
     </Layout>
   );
 };
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const books = await knex<IBook[]>('books').select('id');
-//   const paths = books.map((book) => ({
-//     params: { id: String(book.id) },
-//   }));
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(`${config.app.serverUrl}/v1/books`);
+  const books: IBook[] = await res.json();
 
-//   return {
-//     fallback: false,
-//     paths,
-//   };
-// };
+  const paths = books.map((book) => ({
+    params: { id: String(book.id) },
+  }));
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const book = await knex<IBook>('books')
-//     .select(
-//       'id',
-//       'author_id',
-//       'title',
-//       'description',
-//       'publisher',
-//       'price',
-//       'current_stock',
-//       'pages',
-//       'dimensions',
-//       'language',
-//       'isbn',
-//       'thumbnail'
-//     )
-//     .where('id', params?.id)
-//     .first();
+  return {
+    fallback: false,
+    paths,
+  };
+};
 
-//   return {
-//     props: {
-//       book,
-//     },
-//   };
-// };
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const res = await fetch(`${config.app.serverUrl}/v1/books/${params?.id}`);
+  const book: IBook = await res.json();
+
+  return {
+    props: {
+      book,
+    },
+  };
+};
 
 export default BookDetails;

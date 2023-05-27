@@ -9,6 +9,21 @@ const theme: MantineThemeOverride = {
       textDecoration: 'none',
       color: 'black',
     },
+    ul: {
+      listStyle: 'none',
+    },
+    '::-webkit-scrollbar': {
+      width: '5px',
+      height: '5px',
+    },
+    '::-webkit-scrollbar-thumb': {
+      borderRadius: '10px',
+      backgroundColor: '#888',
+    },
+
+    '::-webkit-scrollbar-track': {
+      backgroundColor: '#f8f8f8',
+    },
   }),
   colorScheme: 'light',
   colors: {
