@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {
   AspectRatio,
   Box,
+  Center,
   Container,
   Flex,
   List,
@@ -15,7 +16,9 @@ import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import Image from 'next/image';
 import darkLogo from 'public/images/logo-black-transparent.png';
 
-const useStyles = createStyles(() => ({
+const currentYear = new Date().getFullYear();
+
+const useStyles = createStyles((theme) => ({
   footer: {
     backgroundColor: '#f4f4f4',
     paddingTop: '2rem',
@@ -26,18 +29,18 @@ const useStyles = createStyles(() => ({
 }));
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
   const { classes } = useStyles();
 
   return (
-    <Box component="footer" className={classes.footer}>
+    <Box component="footer" className={classes.footer} mt="5rem">
       <Container size="lg">
-        <Flex justify="space-between">
-          <Box style={{ flex: 1 }}>
-            <AspectRatio ratio={1 / 1} maw={150}>
-              <Image src={darkLogo} alt="footer logo" />
-            </AspectRatio>
-          </Box>
+        <Flex
+          direction={{ base: 'column', sm: 'row' }}
+          justify="space-between"
+          align="center"
+          gap="xl"
+        >
+          <Image src={darkLogo} width={150} alt="footer logo" />
 
           <Box>
             <List fz="sm" style={{ flex: 1 }}>
@@ -67,7 +70,7 @@ const Footer = () => {
               </List.Item>
             </List>
 
-            <Flex gap={16} mt={12}>
+            <Flex gap={16} mt="lg" justify={{ base: 'center', sm: 'start' }}>
               <Tooltip label="Facebook">
                 <Text
                   component={Link}
@@ -106,7 +109,7 @@ const Footer = () => {
           align="center"
           opacity={0.65}
           my={0}
-          py={12}
+          py={8}
           style={{ userSelect: 'none' }}
         >
           {process.env.NEXT_PUBLIC_APP_NAME} &copy; {currentYear}

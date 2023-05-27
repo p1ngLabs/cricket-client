@@ -64,7 +64,7 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
       opened={isModalOpen}
       onClose={closeModal}
       title={
-        authMode === 'login' ? 'Sign in' : authMode === 'register' ? 'Sign up' : 'Forgot password'
+        authMode === 'login' ? 'Log in' : authMode === 'register' ? 'Sign up' : 'Forgot password'
       }
       classNames={{
         title: classes.title,
@@ -150,7 +150,7 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
           className={classes.oauthButton}
           onClick={handleFacebookLogin}
         >
-          Sign In with Facebook
+          Log In with Facebook
         </Button>
         <Button
           leftIcon={<FaGoogle />}
@@ -158,7 +158,7 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
           className={classes.oauthButton}
           onClick={handleGoogleLogin}
         >
-          Sign In with Google
+          Log In with Google
         </Button>
       </Flex>
 
@@ -174,7 +174,7 @@ const AuthModal = ({ isModalOpen, closeModal }: AuthModalProps) => {
           }
           className={classes.removeUnderlineOnHover}
         >
-          {authMode === 'register' ? 'Sign In' : 'Create an Account'}
+          {authMode === 'register' ? 'Log In' : 'Create an Account'}
         </UnstyledButton>
       </Center>
     </Modal>

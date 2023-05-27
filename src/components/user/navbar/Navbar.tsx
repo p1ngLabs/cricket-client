@@ -46,14 +46,12 @@ const Navbar = () => {
   const { classes } = useStyles();
 
   return (
-    <Center>
-      <Box component="nav" className={classes.navList}>
-        {navbarContents.map((item) => (
-          <Link href={item.url} key={item.title} className={classes.navItems}>
-            {item.title.toLocaleUpperCase()}
-          </Link>
-        ))}
-      </Box>
+    <Center component="nav" className={classes.navList}>
+      {navbarContents.map((item) => (
+        <Link href={item.url} key={item.title} className={classes.navItems}>
+          {item.title.toLocaleUpperCase()}
+        </Link>
+      ))}
     </Center>
   );
 };

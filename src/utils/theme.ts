@@ -7,6 +7,7 @@ const theme: MantineThemeOverride = {
     },
     a: {
       textDecoration: 'none',
+      color: 'black',
     },
   }),
   colorScheme: 'light',
@@ -30,6 +31,13 @@ const theme: MantineThemeOverride = {
     md: '1rem',
     lg: '1.25rem',
     xl: '1.5rem',
+  },
+  breakpoints: {
+    xs: '30em',
+    sm: '48em',
+    md: '64em',
+    lg: '74em',
+    xl: '90em',
   },
 };
 

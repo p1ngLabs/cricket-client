@@ -25,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Header openModal={open} />
       <main className={classes.main}>
-        <Container>{children}</Container>
+        <Container size="lg">{children}</Container>
       </main>
       <Footer />
 

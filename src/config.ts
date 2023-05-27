@@ -3,6 +3,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const config = {
+  app: {
+    nodeEnv: process.env.NODE_ENV,
+    appName: process.env.NEXT_PUBLIC_APP_NAME,
+    appUrl: process.env.NEXT_PUBLIC_APP_URL,
+    serverUrl: process.env.SERVER_URL,
+  },
   oauth: {
     facebook: {
       clientId: process.env.FACEBOOK_CLIENT_ID || '',

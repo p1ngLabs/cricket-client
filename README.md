@@ -6,8 +6,6 @@ A local library and bookstore in Hanoi
 
 - Framework
   - [Next.js](https://nextjs.org/)
-- OAuth2
-  - [NextAuth](https://next-auth.js.org/)
 - Database
   - [PostgreSQL](https://postgresql.org/)
 - Database access

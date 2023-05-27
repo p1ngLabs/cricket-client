@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Box,
+  Button,
   Container,
   Divider,
   Flex,
@@ -8,6 +9,7 @@ import {
   Menu,
   Text,
   TextInput,
+  UnstyledButton,
   createStyles,
 } from '@mantine/core';
 import { Navbar } from '@/components';
@@ -17,7 +19,6 @@ import Banner from './Banner';
 import cricketLogo from 'public/images/logo-white-transparent.png';
 import Link from 'next/link';
 import { BiUserCircle, BiCartAlt, BiSearchAlt2 } from 'react-icons/bi';
-import { useSession, signOut } from 'next-auth/react';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -55,13 +56,7 @@ interface HeaderProps {
 
 const Header = ({ openModal }: HeaderProps) => {
   const { classes } = useStyles();
-  const { data: session } = useSession();
   const router = useRouter();
-
-  const handleLogout = () => {
-    console.log('log out');
-    signOut();
-  };
 
   return (
     <>
@@ -79,33 +74,42 @@ const Header = ({ openModal }: HeaderProps) => {
               placeholder="Search by title, author"
               miw={500}
               className={classes.search}
+              sx={(theme) => ({
+                [theme.fn.smallerThan('sm')]: {
+                  display: 'none',
+                },
+              })}
             />
             <Group>
-              {session ? (
-                <Menu position="bottom-start" shadow="md">
-                  <Menu.Target>{session.user?.name}</Menu.Target>
+              {/* <Menu position="bottom-start" shadow="md">
+                  <Menu.Target>
+                    <UnstyledButton c="white" fw="bold">
+                      {session.user?.name}
+                    </UnstyledButton>
+                  </Menu.Target>
 
                   <Menu.Dropdown>
                     <Menu.Item>
-                      <Link href="/profile">{session.user?.name}</Link>
+                      <UnstyledButton component={Link} href="/profile">
+                        Profile
+                      </UnstyledButton>
                     </Menu.Item>
-                    <Menu.Item onClick={handleLogout}>Log out</Menu.Item>
+                    <Menu.Item onClick={() => signOut()}>Log out</Menu.Item>
                   </Menu.Dropdown>
-                </Menu>
-              ) : (
-                <Flex onClick={openModal} align="center" className={classes.signin} c="white">
-                  <Text span fz={30} display="flex">
-                    <BiUserCircle />
-                  </Text>
-                  <Text span>Sign in</Text>
-                </Flex>
-              )}
+                </Menu> */}
+              <Flex onClick={openModal} align="center" className={classes.signin} c="white">
+                <Text span fz={30} display="flex">
+                  <BiUserCircle />
+                </Text>
+                <Text span>Log in</Text>
+              </Flex>
               <Divider size="sm" orientation="vertical" />
               <Text component={Link} href="#" c="white" fz={30} display="flex">
                 <BiCartAlt />
               </Text>
             </Group>
           </Flex>
+
           <Navbar />
         </Container>
       </Box>
