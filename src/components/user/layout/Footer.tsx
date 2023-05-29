@@ -7,7 +7,7 @@ import darkLogo from 'public/images/logo-black-transparent.png';
 
 const currentYear = new Date().getFullYear();
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   footer: {
     backgroundColor: '#f4f4f4',
     paddingTop: '2rem',
@@ -60,7 +60,7 @@ const Footer = () => {
             </List>
 
             <Flex gap={16} mt="lg" justify={{ base: 'center', sm: 'start' }}>
-              <Tooltip label="Facebook">
+              <Tooltip label="Facebook" withArrow>
                 <Text
                   component={Link}
                   href="https://www.facebook.com/thecricketproject.hn"
@@ -74,7 +74,7 @@ const Footer = () => {
                   <BsFacebook fontSize={28} />
                 </Text>
               </Tooltip>
-              <Tooltip label="Instagram">
+              <Tooltip label="Instagram" withArrow>
                 <Text
                   component={Link}
                   href="https://www.instagram.com/cricketproject__/"

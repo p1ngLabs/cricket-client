@@ -11,11 +11,46 @@ import {
 import Layout from '@/components/admin/layout/Layout';
 import Loader from '@/components/Loader';
 import PageTitle from '@/components/admin/PageTitle';
-import RowImageAdmin from '@/components/admin/row/RowImageAdmin';
-import RowActions from '@/components/admin/row/RowActions';
-import TablePagination from '@/components/admin/TablePagination';
+import RowImage from '@/components/admin/table/RowImage';
+import RowActions from '@/components/admin/table/RowActions';
+import TablePagination from '@/components/admin/table/TablePagination';
 import ICustomer from '@/types/schemas/customer.schema';
 import { sidebarItems } from '@/components/admin/layout/MainLinks';
+import { Container, createStyles } from '@mantine/core';
+
+const useStyles = createStyles((theme) => ({
+  tableWrapper: {
+    overflowX: 'auto',
+    overflowY: 'hidden',
+    marginInline: 'auto',
+    backgroundColor: '#fff',
+    border: `1px solid ${theme.colors.gray[2]}`,
+    borderRadius: theme.radius.md,
+  },
+  table: {
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  thead: {
+    color: theme.colors.gray[8],
+  },
+  th: {
+    padding: theme.spacing.xs,
+    fontSize: theme.fontSizes.sm,
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    textAlign: 'start',
+    borderBottom: `1px solid ${theme.colors.gray[2]}`,
+  },
+  tbody: {
+    fontSize: theme.fontSizes.sm,
+  },
+  td: {
+    paddingInline: theme.spacing.xs,
+    whiteSpace: 'nowrap',
+    borderBottom: `1px solid ${theme.colors.gray[2]}`,
+  },
+}));
 
 const columnHelper = createColumnHelper<ICustomer>();
 const columns = [
@@ -33,7 +68,7 @@ const columns = [
   }),
   columnHelper.accessor('avatar', {
     header: 'avatar',
-    cell: (info) => <RowImageAdmin imgSrc={info.getValue()} />,
+    cell: (info) => <RowImage imgSrc={info.getValue()} />,
   }),
   columnHelper.display({
     header: 'actions',
@@ -42,8 +77,9 @@ const columns = [
 ];
 
 const CustomerPage: NextPage = () => {
+  const { classes } = useStyles();
   const [data, setData] = useState<ICustomer[]>([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const pageTitle = sidebarItems.find((item) => item.url === router.pathname)?.label;
 
@@ -58,10 +94,10 @@ const CustomerPage: NextPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch('http://localhost:3001/v1/users');
+        const res = await fetch(`http://localhost:3001/v1/users`);
         const customers = await res.json();
         setData(customers);
-        setLoading(false);
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -73,36 +109,21 @@ const CustomerPage: NextPage = () => {
   return (
     <>
       <Layout>
-        <PageTitle title={pageTitle} />
-
-        <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md custom-box-shadow">
-          <input
-            type="search"
-            id="search"
-            name="search"
-            className="input input-bordered w-5/6 bg-gray-100 focus:outline-none bg-gray"
-            placeholder="Search by username or email"
-          />
-          <button type="button" className="btn w-1/6 text-lg uppercase">
-            Thêm
-          </button>
-        </div>
+        <Container size="xl">
+          <PageTitle title={pageTitle} />
+        </Container>
 
         {isLoading ? (
           <Loader />
         ) : (
           <>
-            <div className="w-full overflow-x-auto overflow-y-hidden custom-box-shadow">
-              <table className="min-w-full divide-y">
-                <thead className="text-gray-500">
+            <Container size="xl" className={classes.tableWrapper}>
+              <table className={classes.table}>
+                <thead className={classes.thead}>
                   {table.getHeaderGroups().map((headerGroup) => (
                     <tr key={headerGroup.id}>
                       {headerGroup.headers.map((header) => (
-                        <th
-                          key={header.id}
-                          scope="col"
-                          className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                        >
+                        <th key={header.id} scope="col" className={classes.th}>
                           {header.isPlaceholder
                             ? null
                             : flexRender(header.column.columnDef.header, header.getContext())}
@@ -111,11 +132,11 @@ const CustomerPage: NextPage = () => {
                     </tr>
                   ))}
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200 text-sm">
+                <tbody className={classes.tbody}>
                   {table.getRowModel().rows.map((row) => (
                     <tr key={row.id}>
                       {row.getVisibleCells().map((cell) => (
-                        <td key={cell.id} className="py-2 px-4 whitespace-nowrap">
+                        <td key={cell.id} className={classes.td}>
                           {flexRender(cell.column.columnDef.cell, cell.getContext())}
                         </td>
                       ))}
@@ -123,8 +144,9 @@ const CustomerPage: NextPage = () => {
                   ))}
                 </tbody>
               </table>
-            </div>
-            <TablePagination table={table} />
+
+              <TablePagination table={table} />
+            </Container>
           </>
         )}
       </Layout>

@@ -4,8 +4,8 @@ const PageTitle = ({ title }: { title: string | undefined }) => {
   const theme = useMantineTheme();
 
   return (
-    <Title order={2} fw="bold" color={theme.colors.gray[8]}>
-      Danh sách {title}
+    <Title order={2} fw="bold" color={theme.colors.gray[8]} mb={theme.spacing.xs}>
+      {title} List
     </Title>
   );
 };
