@@ -1,14 +1,14 @@
 import type { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Layout from '@/components/user/Layout';
-import { Breadcrumbs } from '@/components';
-import { FreeMode, Navigation, Thumbs } from 'swiper';
-import IBook from '@/types/schemas/book.schema';
-import QuantityCounter from '@/components/shared/QuantityCounter';
-import config from '@/config';
 import { Badge, Box, Flex, Title, Text, createStyles, Button, Divider, List } from '@mantine/core';
+import config from '@/config';
+import Layout from '@/components/user/layout/Layout';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import IBook from '@/types/schemas/book.schema';
+import QuantityCounter from '@/components/QuantityCounter';
+import { FreeMode, Navigation, Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -169,7 +169,7 @@ const BookDetails = ({ book }: InferGetStaticPropsType<typeof getStaticProps>) =
 
             <Text fw="bold" fz="xl" my="md">
               {book.price.toLocaleString()}
-              <sup>VND</sup>
+              <sup>đ</sup>
             </Text>
 
             <Flex align="center" gap="md">

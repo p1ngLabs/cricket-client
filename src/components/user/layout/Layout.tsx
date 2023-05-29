@@ -1,5 +1,7 @@
 import { Container, createStyles } from '@mantine/core';
-import { Header, Footer, AuthModal } from '@/components';
+import Header from './Header';
+import Footer from './Footer';
+import AuthModal from '@/components/modals/AuthModal';
 import { Montserrat } from 'next/font/google';
 import { useDisclosure } from '@mantine/hooks';
 import React from 'react';

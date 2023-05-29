@@ -12,7 +12,7 @@ import {
   UnstyledButton,
   createStyles,
 } from '@mantine/core';
-import { Navbar } from '@/components';
+import Navbar from './Navbar';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Banner from './Banner';
@@ -64,9 +64,7 @@ const Header = ({ openModal }: HeaderProps) => {
         <Container size="lg">
           <Flex align="center" justify="space-between" pos="relative">
             <Link href="/" className={classes.logo}>
-              <AspectRatio ratio={1 / 1}>
-                <Image src={cricketLogo} alt="logo" priority />
-              </AspectRatio>
+              <Image src={cricketLogo} width={65} alt="logo" priority />
             </Link>
             <TextInput
               type="search"

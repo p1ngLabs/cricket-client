@@ -1,5 +1,5 @@
 import type { NextPage } from 'next/types';
-import Layout from '@/components/user/Layout';
+import Layout from '@/components/user/layout/Layout';
 import { AspectRatio, Box, Button, TextInput, Textarea, Title, createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({

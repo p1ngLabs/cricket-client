@@ -8,10 +8,14 @@ import {
   getPaginationRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import Layout from '@/components/admin/Layout';
-import { Loader, PageTitle, RowImageAdmin, RowActions, TablePagination } from '@/components';
+import Layout from '@/components/admin/layout/Layout';
+import Loader from '@/components/Loader';
+import PageTitle from '@/components/admin/PageTitle';
+import RowImageAdmin from '@/components/admin/row/RowImageAdmin';
+import RowActions from '@/components/admin/row/RowActions';
+import TablePagination from '@/components/admin/TablePagination';
 import ICustomer from '@/types/schemas/customer.schema';
-import sidebarContents from '@/types/schemas/SidebarAdmin';
+import { sidebarItems } from '@/components/admin/layout/MainLinks';
 
 const columnHelper = createColumnHelper<ICustomer>();
 const columns = [
@@ -39,9 +43,9 @@ const columns = [
 
 const CustomerPage: NextPage = () => {
   const [data, setData] = useState<ICustomer[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  const [isLoading, setLoading] = useState(true);
   const router = useRouter();
-  const pageTitle = sidebarContents.find((item) => item.url === router.pathname)?.title;
+  const pageTitle = sidebarItems.find((item) => item.url === router.pathname)?.label;
 
   const table = useReactTable({
     data,
@@ -54,7 +58,7 @@ const CustomerPage: NextPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch('/api/customers');
+        const res = await fetch('http://localhost:3001/v1/users');
         const customers = await res.json();
         setData(customers);
         setLoading(false);
@@ -71,7 +75,6 @@ const CustomerPage: NextPage = () => {
       <Layout>
         <PageTitle title={pageTitle} />
 
-        {/* Action bar */}
         <div className="flex gap-4 bg-white px-4 py-4 my-6 rounded-md custom-box-shadow">
           <input
             type="search"
@@ -84,7 +87,6 @@ const CustomerPage: NextPage = () => {
             Thêm
           </button>
         </div>
-        {/* End of action bar */}
 
         {isLoading ? (
           <Loader />

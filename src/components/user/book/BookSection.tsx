@@ -1,5 +1,5 @@
 import Book from '@/types/schemas/book.schema';
-import { BookCard } from '../..';
+import BookCard from './BookCard';
 import { Box, Grid, Title } from '@mantine/core';
 
 export interface BookSectionProps {

@@ -1,7 +1,13 @@
-const PageTitle = (props: { title: string | undefined }) => {
-  const { title } = props;
+import { Title, useMantineTheme } from '@mantine/core';
 
-  return <h1 className="font-bold text-xl text-gray-700">Danh sách {title}</h1>;
+const PageTitle = ({ title }: { title: string | undefined }) => {
+  const theme = useMantineTheme();
+
+  return (
+    <Title order={2} fw="bold" color={theme.colors.gray[8]}>
+      Danh sách {title}
+    </Title>
+  );
 };
 
 export default PageTitle;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Box, Center, createStyles } from '@mantine/core';
+import { Center, createStyles } from '@mantine/core';
 
 interface NavbarInterface {
   title: string;
@@ -34,10 +34,14 @@ const useStyles = createStyles((theme) => ({
   navItems: {
     display: 'inline-block',
     fontWeight: 'bold',
-    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+    paddingBlock: `${theme.spacing.xs}`,
+    paddingInline: `${theme.spacing.md}`,
     color: 'white',
     '&:hover': {
       color: 'gray',
+    },
+    [theme.fn.smallerThan('sm')]: {
+      paddingInline: `${theme.spacing.xs}`,
     },
   },
 }));
