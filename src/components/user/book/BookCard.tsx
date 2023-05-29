@@ -1,39 +1,65 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Book from '@interfaces/Book';
+import Book from '@/types/schemas/book.schema';
+import { AspectRatio, Button, Card, Stack, Text, Tooltip, createStyles } from '@mantine/core';
 
-const BookCard = (props: { book: Book }) => {
-  const { book } = props;
+interface BookCardProps {
+  book: Book;
+}
+
+const useStyles = createStyles(() => ({
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+}));
+
+const BookCard = ({ book }: BookCardProps) => {
+  const { classes } = useStyles();
 
   return (
-    <article
-      key={book.isbn}
-      className="card min-w-[13rem] md:w-[18%] bg-base-100 hover:border hover:border-blue-500"
+    <Card
+      component="article"
+      shadow="md"
+      padding="md"
+      radius="md"
+      h="100%"
+      withBorder
+      className={classes.card}
     >
-      <figure className="relative px-4 pt-4">
+      <Card.Section p="md">
         <Link href={`/books/${book.id}`}>
-          <Image
-            src={book.thumbnail}
-            width="100"
-            height="150"
-            className="rounded"
-            alt="Book thumbnail"
-          />
+          <AspectRatio ratio={5 / 6}>
+            <Image
+              src={book.thumbnail}
+              width={100}
+              height={120}
+              alt="Book Thumb"
+              style={{ objectFit: 'contain' }}
+            />
+          </AspectRatio>
         </Link>
-      </figure>
-      <main className="flex flex-col flex-auto gap-2 p-4">
-        <div className="flex-grow">
-          <p className="font-semibold text-red-600">{book.price?.toLocaleString('en-US')} VND</p>
-          <h3 className="font-semibold text-md my-1">
-            <Link href={`/books/${book.id}`} className="hover:text-blue-500">
-              {book.title}
-            </Link>
-          </h3>
-          <p className="text-xs opacity-60">{book.publisher}</p>
-        </div>
-        <button className="btn w-full">Add to Cart</button>
-      </main>
-    </article>
+      </Card.Section>
+
+      <Stack spacing="2xs">
+        <Text component="p" weight="bold" color="red" my={0}>
+          {book.price.toLocaleString('en-US')} VND
+        </Text>
+        <Link href={`/books/${book.id}`}>
+          <Text size="md" weight={500} lineClamp={2}>
+            {book.title}
+          </Text>
+        </Link>
+        <Text color="dimmed" size="xs" mb={8}>
+          {/* TODO: Change to author name */}
+          {book.publisher}
+        </Text>
+      </Stack>
+
+      <Button variant="light" color="violet" fullWidth px={0} mt="auto" radius="md">
+        Add to Cart
+      </Button>
+    </Card>
   );
 };
 

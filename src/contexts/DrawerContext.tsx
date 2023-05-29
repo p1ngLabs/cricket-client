@@ -1,23 +1,23 @@
-import { createContext, ReactNode, useState } from 'react';
+import { useDisclosure } from '@mantine/hooks';
+import React, { ReactNode, createContext } from 'react';
 
-export interface DrawerContextInterface {
-  isDrawerOpen: boolean;
-  toggleDrawer: () => void;
+export interface IDrawerContext {
+  opened: boolean;
+  open: () => void;
+  close: () => void;
 }
 
-const DrawerContext = createContext({} as DrawerContextInterface);
+interface DrawerProviderProps {
+  children: ReactNode;
+}
 
-export const DrawerProvider = (props: { children: ReactNode }) => {
-  const { children } = props;
-  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-  const toggleDrawer = () => {
-    setIsDrawerOpen((prevState) => !prevState);
-  };
+const DrawerContext = createContext({} as IDrawerContext);
+
+export const DrawerProvider = ({ children }: DrawerProviderProps) => {
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
-    <DrawerContext.Provider value={{ isDrawerOpen, toggleDrawer }}>
-      {children}
-    </DrawerContext.Provider>
+    <DrawerContext.Provider value={{ opened, open, close }}>{children}</DrawerContext.Provider>
   );
 };
 
